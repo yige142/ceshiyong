@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>测试对象</title>
+    <script ></script>
+</head>
+<body>
+<div class="ss">sss</div>
+</body>
+<script >
+
+    // 在js中，数组怎么转化为json对象?
+    // 数组里全是值- -JSON是键值对，循环赋值就行了：
+    var a = ['姓名', '地址', '手机'];
+    var json = {};
+    for (var i = 0; i < a.length; i++) {
+        json["属性" + i] = a[i];
+    }
+ //   var myJson = JSON.stringify(json);
+    //测试直接转json
+    var myJson = JSON.stringify(json);
+    var a=JSON.parse(myJson);
+    alert( typeof a);
+    console.log(a);
+     //获取属性的值
+    console.log(a["属性0"]);
+
+
+
+
+
+    //使用对象
+    //js转JSON
+    //JSON是对象，但对象不一定是JSON
+    //总之，JSON和对象的区别就在于有没有方法，在JS中某种意义上讲JSON.parse()转换的就是一个对象。
+    // var person = {};
+    // person.name="huangbaokang";
+    // person.age=30;
+    // person.author = function(){
+    //     return this.name;
+    // }
+    // // alert(person.age);
+    // var jsonString = JSON.stringify(person) //将JS对象转换为JSON字符串
+    // var jsonObject = JSON.parse(jsonString) //将JSON字符串转换为JSON对象
+    // alert(person);
+    // alert(jsonString);
+    //
+    // alert(jsonObject);
+    // alert(jsonObject.age);
+    // console.log(jsonObject);// ["name", "age", "author"]
+
+</script>
+
+</html>
