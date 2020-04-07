@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="register.css"/>
+    <script src="jquery_3.2.js"></script>
+    <script src="https://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.js"></script>
+    <title>留言</title>
+</head>
+<body>
+
+<div class="register_head">
+       <div class="welcome_reg">留言</div>
+</div>
+
+<div class="register_content">
+
+      <div class="register_content_area">
+          <div class="register_input">
+              <span class="register_user">用户名: <span class="account"></span></span>
+              <input class="input_username" type="hidden" id="account" />
+              <input class="input_username" type="hidden" id="nick_name" />
+              <input class="input_username" type="hidden" id="user_id" />
+          </div>
+
+          <div class="register_input">
+              <span class="register_password">留言:</span>
+              <textarea class="input_username" type="textarea" id="message" style="height: 167px; overflow: hidden auto;"></textarea>
+          </div>
+
+              <a href="javascript:;"><button class="register_submit" onclick="return ajaxPost();">发布</button></a>
+      </div>
+
+</div>
+</body>
+
+  <script>
+      $(document).ready(function(){
+          if($.cookie("nick_name")){
+              var nick_name=$.cookie("nick_name");
+              var user_id=$.cookie("user_id");
+              var account=$.cookie("account");
+              $('#account').val(account);
+              $('#user_id').val(user_id);
+              $('#nick_name').val(nick_name);
+              $('.account').html(nick_name);
+          }
+      });
+//后端判断cookie
+
+      function ajaxPost(){
+          if($('#message').val()==''){
+              alert('留言内容不能为空');
+          }
+
+          $.ajax({
+              url:'add_topic.php?act=add_topic',
+              type:'Post',
+              data:{
+                  nickname:$('#nick_name').val(),
+                  account:$('#account').val(),
+                  user_id:$('#user_id').val(),
+                  message:$('#message').val(),
+                  token:$.cookie("token")
+
+              },
+              success:function (data) {
+                  var dataObj = JSON.parse(data);
+                  if (0 == dataObj.code) {
+                      alert(dataObj.msg);
+                      window.location.href="http://bbs.qq.com/login.html"
+                      return;
+                  }
+                  if (1 == dataObj.code) {
+                      alert(dataObj.msg);
+                      window.location.href="http://bbs.qq.com/index.html"
+                  }
+              }
+          });
+      }
+
+  </script>
+</html>

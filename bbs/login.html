@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="register.css"/>
+    <script src="jquery_3.2.js"></script>
+
+    <title>登陆</title>
+</head>
+<body>
+
+<div class="register_head">
+       <div class="welcome_reg">欢迎登录</div>
+</div>
+
+<div class="register_content">
+
+      <div class="register_content_area">
+          <div class="register_input">
+              <span class="register_user">用户名:</span> <input class="input_username" type="text" id="account" />
+          </div>
+
+          <div class="register_input">
+              <span class="register_password">密码:</span> <input class="input_username" type="password" id="password" />
+          </div>
+
+              <a href="javascript:;"><button class="register_submit" onclick="return ajaxPost();">登陆</button></a>
+      </div>
+
+</div>
+</body>
+
+  <script>
+      function ajaxPost(){
+          if(!$('#account').val()){
+              alert('账户不能为空');
+              return false;
+          }
+
+          if(!$('#password').val()){
+              alert('密码不能为空');
+              return false;
+          }
+
+          $.ajax({
+              url:'login.php?act=login',
+              type:'Post',
+              data:{
+                  account:$('#account').val(),
+                  password:$('#password').val()
+              },
+              success:function (data) {
+                  var dataObj = JSON.parse(data);
+                  if (0 == dataObj.code) {
+                      alert(dataObj.msg);
+                      return;
+                  }
+                  if (1 == dataObj.code) {
+                      alert(dataObj.msg);
+                      window.location.href="http://bbs.qq.com/index.html"
+                  }
+              }
+          });
+      }
+
+  </script>
+</html>

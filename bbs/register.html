@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="register.css"/>
+    <script src="jquery_3.2.js"></script>
+
+    <title>注册</title>
+</head>
+<body>
+
+<div class="register_head">
+       <div class="welcome_reg">欢迎注册</div>
+</div>
+
+<div class="register_content">
+
+      <div class="register_content_area">
+          <div class="register_input">
+              <span class="register_user">用户名:</span> <input class="input_username" type="text" id="account" />
+          </div>
+          <div class="register_input">
+              <span class="register_password">昵称:</span> <input class="input_username" type="text" id="nickname" />
+          </div>
+          <div class="register_input">
+              <span class="register_password">密码:</span> <input class="input_username" type="password" id="password" />
+          </div>
+          <div class="register_input">
+              <span class="register_password2">确认密码:</span> <input class="input_password2" type="password" id="password2" />
+          </div>
+          <div class="register_input">
+              <span class="register_password">简介:</span> <input class="input_username" type="text" id="introduction" />
+          </div>
+
+              <a href="javascript:;"><button class="register_submit" onclick="return ajaxPost();">注册提交</button></a>
+      </div>
+
+</div>
+</body>
+
+  <script>
+      function ajaxPost(){
+          if(!$('#account').val()){
+              alert('账户不能为空');
+              return false;
+          }
+          if(!$('#nickname').val()){
+              alert('昵称不能为空');
+              return false;
+          }
+          if(!$('#password').val()){
+              alert('密码不能为空');
+              return false;
+          }
+          if(!$('#password2').val()){
+              alert('密码不能为空');
+              return false;
+          }
+
+          if ($('#account').val().length < 4 || $('#account').val().length > 13) {
+              alert('用户名字符长度4到13位');
+              return false;
+          }
+
+          if($('#password').val()!==$('#password2').val()){
+              alert('两次密码不相等');
+              return false;
+          }
+
+          // 正则检查用户名
+          var patt = /^\w+$/;
+          if (!patt.test($('#account').val())){
+              alert('账号只能是大小写字母、下划线、数字组成');
+              return false;
+          }
+
+          //昵称检测
+          if($('#nickname').val().length < 4 || $('#nickname').val().length > 12) {
+              alert('昵称字符长度4到12位');
+              return;
+          }
+
+
+
+
+
+
+          $.ajax({
+              url:'register.php?act=register',
+              type:'Post',
+              data:{
+                  account:$('#account').val(),
+                  nickname:$('#nickname').val(),
+                  password:$('#password').val(),
+                  password2:$('#password2').val(),
+                  introduction:$('#introduction').val()
+              },
+              success:function (dataStr) {
+                  var dataObj = JSON.parse(dataStr);
+                  if (0 == dataObj.code) {
+                      alert(dataObj.msg);
+                      return;
+                  }
+                  if (1 == dataObj.code) {
+                      alert(dataObj.msg);
+                      window.location.href="http://bbs.qq.com/login.html"
+                  }
+              }
+          });
+      }
+
+  </script>
+</html>

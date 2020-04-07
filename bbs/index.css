@@ -1,0 +1,101 @@
+body{
+    margin:0;
+    padding:0;
+    font: 12px "Microsoft YaHei","WenQuanYi Micro Hei",sans-serif;
+}
+a{
+    color: #222222;
+    text-decoration: none;
+}
+.img{
+    width: 100%;
+    height:auto;
+}
+.head_top{
+    width: 100%;
+    height: 50px;
+    background-color: #f2f2f2;
+}
+.head_title_left{
+    font-size: 16px;
+}
+.head_content_area{
+    width: 1200px;
+    margin: auto;
+    line-height: 50px;
+}
+.head_title_right{
+    float: right;
+    font-size: 16px;
+    margin-right: 20px;
+}
+.head_logo{
+    width: 1200px;
+    height: 120px;
+    margin: auto;
+    background-color:#f2f2f2;
+}
+
+.head_logo_right_area{
+    float: right;
+    width: 620px;
+    height: 60px;
+    margin-top: 28px;
+    background-color: #7c7c7c;
+}
+.my_address,.my_rest{
+    float: left;
+    width: 205px;
+    height: 48px;
+    margin-top: 5px;
+    background-color: #7c7c7c;
+}
+.my_address{
+    border-right: dashed 0.5px #9692a0;
+}
+.my_address_content{
+    float: right;
+    font-size: 15px;
+    letter-spacing:0px;
+    margin-top: 5px;
+    margin-right: 15px;
+}
+.address_icon{
+    position: relative;
+    left:22px;
+    top:10px;
+}
+
+.nav_area{
+    width: 100%;
+    height: auto;
+    background-color: #f5f5f5;
+}
+.nav{
+    width: 1200px;
+    margin:auto;
+    height: 60px;
+    background-color: #ffffff;
+    overflow: hidden;
+}
+.nav ul li{
+    float: left;
+    list-style:none;
+    width: 85px;
+    height: 35px;
+    background-color: #7c7c7c;
+    font-size: 16px;
+    text-align: center;
+    line-height: 35px;
+    border-right: dashed 0.5px #9692a0;
+}
+
+.nav_title a{
+    color: #ffffff;
+}
+.carousel{
+    width: 100%;
+    height: 500px;
+    margin: auto;
+    background-color: #f2f2f2;
+}
