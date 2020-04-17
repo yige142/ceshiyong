@@ -1,16 +1,16 @@
 
-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background: #222;
-}
+/*body {*/
+/*  display: flex;*/
+/*  justify-content: center;*/
+/*  align-items: center;*/
+/*  height: 100vh;*/
+/*  background: #222;*/
+/*}*/
 
 .rotating-text {
   font-family: Lato, sans-serif;
   font-weight: 600;
-  font-size: 36px;
+  font-size: 12px !important;
   color: white;
   transform: translateX(-80px);
 }

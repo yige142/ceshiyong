@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>测试不用js鼠标移到DIV 显示或隐藏其它元素</title>
+    <style>
+        .FontStyle{float:left;}
+        .wrap{float:left;}
+        .wrap{border:1px solid white;width:250px;height:20px;margin-left:3px;}
+        .wrap:hover span{display:block;margin-right:10px;}
+        .wrap span{display:none;float:left;}
+
+
+        .aa{width: 100px;height: 100px;background-color: #7c7c7c}
+        /*div :hover 成伪类 cc dd就能显示，但没有渐变的效果。*/
+        .cc{display: none}
+        .dd{display: none}
+        .aa:hover .cc{display: block}
+        .aa:hover .dd{display: block}
+    </style>
+</head>
+<body>
+
+
+<span style="color:#330033;">
+
+		<div class="FontStyle">hi,i am here： </div>
+		<div class="wrap">
+			  <span class="label label-primary bstreeadd">添加</span>
+			  <span class="label label-primary bstreeedit">修改</span>
+			  <span class="label label-danger  bstreedel">删除</span>
+		</div>
+
+
+
+</span>
+
+
+
+
+<div class="aa">
+    <ul class="dd">
+        <li>sdfdsf</li>
+        <li>zxczcxc</li>
+        <li>zfdsfsdfds</li>
+    </ul>
+    <span class="cc">bbbb</span>
+</div>
+
+</body>
+</html>

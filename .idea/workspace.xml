@@ -2,7 +2,28 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4c5e0d9c-db8e-4e91-b6db-5ea49af2c1c5" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/banner/css/banner.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/banner/demo.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/banner/demo2.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/banner/img/DSC05430.JPG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/banner/img/banner.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/banner/img/index_07.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/banner/img/index_09.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/banner/img/lunbo1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/banner/img/lunbo2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/banner/img/lunbo3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/banner/img/navBtn.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/banner/img/nexImg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/banner/img/preImg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/banner/js/banner.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/banner/js/banner_back.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/banner/js/jquery.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/banner/js/test.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/css/css.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/csstext/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/csstext/css/ratating_text.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/csstext/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/csstext/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/csstext/js/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/csstext/js/ratating_text.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,22 +45,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
+        <option value="JavaScript File" />
       </list>
     </option>
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>redis</find>
-      <find>is_se</find>
-      <find>2019</find>
-      <find>for up</find>
-      <find>$instance</find>
-      <find>策略</find>
-      <find>2</find>
-    </findStrings>
-    <dirStrings>
-      <dir>E:\phpstudy\WWW\ceshiyong</dir>
-    </dirStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -76,15 +84,18 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/banner" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.常规" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\phpstudy\WWW\ceshiyong\banner" />
+      <recent name="E:\phpstudy\WWW\ceshiyong\banner\js" />
+      <recent name="E:\phpstudy\WWW\ceshiyong\banner\img" />
+      <recent name="D:\phpstudy\WWW\test" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\phpstudy\WWW\ceshiyong\JS" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\phpstudy\WWW\test" />
     </key>
   </component>
   <component name="RunManager">
@@ -132,7 +143,8 @@
       <workItem from="1584368333133" duration="6265000" />
       <workItem from="1584415361221" duration="4511000" />
       <workItem from="1584592791435" duration="5981000" />
-      <workItem from="1587006279773" duration="4767000" />
+      <workItem from="1587006279773" duration="5125000" />
+      <workItem from="1587089129259" duration="17065000" />
     </task>
     <servers />
   </component>
@@ -146,6 +158,12 @@
     <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
       <collection />
     </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1587113004822">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1587113004822" />
   </component>
   <component name="masterDetails">
     <states>
