@@ -86,7 +86,7 @@ header("Content-type: text/html; charset=utf-8");
 //生成订单用此处下------------------------
 echo microtime()."    ----微妙数：" ;
 echo "<br>";
-echo  substr(microtime(), 2, 5)."  --截取微妙数  substr(microtime(), 2, 5):";
+echo  substr(microtime(), 2, 6)."  --截取微妙数  substr(microtime(), 2, 5):";
 echo "<br>";
 echo date('Ymd')."    输出日期数：--";
 echo "<br>";
@@ -97,17 +97,17 @@ echo "<br>";
 echo date('Ymd').substr(time(), -5) . substr(microtime(), 2, 5)."日期数+微秒数" ;
 echo "<br>";
 echo sprintf('%02d', rand(1000, 9999));
-
+echo "<br>";
 $danhao = date('Ymd').substr(time(), -5) . substr(microtime(), 2, 5) . sprintf('%02d', rand(1000, 9999));
 
 echo $danhao;
 // echo $danhao;
 //php生成唯一订单号的方法  10秒生成100w订单号，平均一秒插入10W条，测试无重复值  可以用这ge!!
-for ($i=1;$i<1000000;$i++){
+for ($i=1;$i<200000;$i++){
    // $danhao = substr(date('Ymd'), 2,strlen(date('Ymd'))). str_pad(mt_rand(1, 99999), 5, '0', STR_PAD_LEFT);
 
    //尝试用微妙数
-    $danhao = date('Ymd').substr(time(), -5) . substr(microtime(), 2, 5) . sprintf('%02d', rand(1000, 9999));
+   $danhao = date('Ymd').substr(time(), -5) . substr(microtime(), 2, 6) . sprintf('%02d', rand(1000, 9999));
 
     $a[]=$danhao;
    // echo $danhao;
@@ -117,6 +117,7 @@ for ($i=1;$i<1000000;$i++){
 echo "生成完成";
 echo "<br>";
 if (count($a) != count(array_unique($a))) {
+    echo count(array_unique($a))-count($a);
     echo '该数组有重复值';
 }else{
     echo '没有重复的值';
