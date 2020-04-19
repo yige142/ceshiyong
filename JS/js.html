@@ -12,6 +12,18 @@
  </div>
 </body>
 <script>
+    //tp5url跳转链接加上JS参数变量
+    $('#search_sql').click(function () {
+        var input=$('.input-text ').val();
+        //  alert(a);
+        var str = "{:url('news/search_key',array('keywords'=>'input'))}"; //先将变量以字符串的形式带入U函数中
+
+        str1 =  str.replace("input",input); //将代替变量的字符串用真实变量替换掉
+
+        window.location.href=str1;
+    })
+
+
     var name='Tencent';
     function a (){
         if (typeof name ==='undefined')
