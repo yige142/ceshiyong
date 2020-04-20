@@ -57,7 +57,7 @@
 	//记录当前位子
 	var zhegeImg = 0;
 	//用于获取轮播图图片个数
-	var imgLength = $("#bb .banner ul li").length;
+	var bb_imgLength = $("#bb .banner ul li").length;
 
 	//页面加载
 	$(document).ready(function(){
@@ -68,7 +68,7 @@
 
 	//轮播图
 	function intervalImg2(){
-		if(zhegeImg<imgLength-1){
+		if(zhegeImg<bb_imgLength-1){
 			zhegeImg++;
 		}else{
 			zhegeImg=0;

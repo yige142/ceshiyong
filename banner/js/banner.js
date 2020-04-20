@@ -23,7 +23,7 @@ $(".preImg").click(function(){
     nexImg = nexImg-1;
     console.log(nexImg);
     if(nexImg<0){
-        nexImg=imgLength-1;
+        nexImg=imgLength;
     }
     //底部按钮样式设置
     $("#fist_banner .jumpBtn ul li").css("background-color","white");
@@ -53,7 +53,7 @@ $(".nexImg").click(function(){
 
 //轮播图
 function intervalImg(){
-    if(nexImg<imgLength-1){
+    if(nexImg<=imgLength-1){
         nexImg++;
     }else{
         nexImg=0;
