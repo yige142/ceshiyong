@@ -1,1 +1,15 @@
-git 拉取提示腾讯云账号密码错误  https://blog.csdn.net/Rachel_wang0123/article/details/86245423
+1.git 拉取提示腾讯云账号密码错误  https://blog.csdn.net/Rachel_wang0123/article/details/86245423
+
+2.php文件上传没响应
+  原因调用 move_uploaded_file(file,path) 中的file是$_FILES['file']['temp_name'] ,个人存成$_FILES['file']['name'],导致程序执行没有任何响应;
+
+
+3.TP5根据页面输出的变量生成跳转地址
+   控制器输入变量
+    $this -> view -> assign('picture', 'picture');
+    $this -> view -> assign('cc', 'cc');
+
+    页面书写格式
+    <span><a href="{:url(''.$picture.'/'.$cc.'')}">sfdsfd</a></span>
+
+    查看url实际地址 http://www.locallaser.com/index.php/admin/picture/cc.html
