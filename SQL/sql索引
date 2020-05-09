@@ -1,0 +1,24 @@
+SELECT `gdlaser_news`.`id`,`gdlaser_news`.`title`,`gdlaser_news`.`body`,`gdlaser_news`.`description`,`gdlaser_news`.`pic`,`gdlaser_news`.`writer`,`gdlaser_news`.`source`,`gdlaser_news`.`update_time`,`gdlaser_news`.`cate_id`,`gdlaser_cate`.`id`,`gdlaser_cate`.`name` FROM `gdlaser_news` LEFT JOIN `gdlaser_cate` `gdlaser_cate` ON `gdlaser_news`.`cate_id`=`gdlaser_cate`.`id` WHERE `gdlaser_news`.`title` LIKE '%主任%' OR `gdlaser_cate`.`name` LIKE '%主任%' ORDER BY `update_time` DESC LIMIT 0,8
+
+EXPLAIN SELECT `gdlaser_news`.`id`,`gdlaser_news`.`title`,`gdlaser_news`.`body`,`gdlaser_news`.`description`,`gdlaser_news`.`pic`,`gdlaser_news`.`writer`,`gdlaser_news`.`source`,`gdlaser_news`.`update_time`,`gdlaser_news`.`cate_id`,`gdlaser_cate`.`id`,`gdlaser_cate`.`name` FROM `gdlaser_news` LEFT JOIN `gdlaser_cate` `gdlaser_cate` ON `gdlaser_news`.`cate_id`=`gdlaser_cate`.`id` WHERE `gdlaser_news`.`title` LIKE '%主任%' OR `gdlaser_cate`.`name` LIKE '%主任%' ORDER BY `update_time` DESC LIMIT 0,8
+
+
+EXPLAIN SELECT id,title,description,update_time FROM `gdlaser_news` WHERE id = 1500
+
+EXPLAIN SELECT id,title,description FROM `gdlaser_news` WHERE title LIKE '主任'
+
+#指定了组合索引 title -title+descrption 指定字段搜索会命中索引。数据量大的话，是否可以用该方法找到对应的数据ID，再用ID取找到该数据的其它字段，不知查询速度会提升不
+EXPLAIN SELECT id,title,description FROM `gdlaser_news` WHERE title LIKE '%主任%'
+
+#如上索引只搜到一条，返回ID可以直接使用索引 Conte级别理论可行
+EXPLAIN SELECT * from `gdlaser_news` WHERE id = 780
+
+#如上按索引搜到7个ID ， 用In的话也能使用到索引rang级别，理论上可行
+EXPLAIN SELECT * from `gdlaser_news` WHERE  id IN(780,775,777,779)
+
+
+#like搜索全部字段
+EXPLAIN SELECT * FROM `gdlaser_news` WHERE title LIKE '%主任%'
+EXPLAIN SELECT id,title,description,update_time  FROM `gdlaser_news` WHERE LOCATE('主任', `title`)>0
+
+EXPLAIN SELECT `gdlaser_news`.`title`,`gdlaser_news`.`description`,`gdlaser_cate`.`name` FROM `gdlaser_news` LEFT JOIN `gdlaser_cate` `gdlaser_cate` ON `gdlaser_news`.`cate_id`=`gdlaser_cate`.`id` WHERE `gdlaser_news`.`title` LIKE '%主任%' OR `gdlaser_cate`.`name` LIKE '%主任%'  LIMIT 0,8
