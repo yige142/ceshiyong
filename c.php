@@ -1,5 +1,11 @@
 <?php
 
+var_dump($_POST['need']);
+die();
+
+
+
+
 
 //调试文件上传
 echo '<pre>';

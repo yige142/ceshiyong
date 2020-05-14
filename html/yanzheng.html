@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>验证邮箱</title>
+</head>
+<body>
+<tr>
+    <td class="td_title"><span class="f_red">*</span> 您需要订阅</td>
+    <td class="td_checkbox" >
+        <span><input type="checkbox" name="need[]" value="yinshuaban"   /> 印刷版</span>
+        <span> <input type="checkbox" name="need[]" value="dingyuejiguang"  /> 订阅激光周刊</span>
+        <span> <input type="checkbox" name="need[]" value="genxinziliao"  /> 更新资料</span>
+    </td>
+</tr>
+
+<tr>
+    <td class="td_title"><span class="f_red">*</span>邮箱</td>
+    <td class="" >
+        <input type="text" class="input-text" name="email" value=""  placeholder="电子邮箱"  />
+    </td>
+</tr>
+
+<button type="" class="tijiao">提交</button>
+</body>
+<script>
+    $('.tijiao').click(function () {
+
+        if (!$(':checkbox').is(':checked')) {
+            alert('订阅的内容不能为空！');
+            return false;
+        }
+
+
+        if($("[name='email']").val()==''){
+            alert('电子邮箱不能为空！');
+            return false;
+        }else{
+            if(!isValidEmailAddress($("[name='email']").val())){
+                alert('邮箱地址不正确');
+                return  false;
+            }
+        }
+
+    })
+
+    //验证邮箱地址
+    function isValidEmailAddress(emailAddress) {
+        var pattern = /^([a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+(\.[a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+)*|"((([ \t]*\r\n)?[ \t]+)?([\x01-\x08\x0b\x0c\x0e-\x1f\x7f\x21\x23-\x5b\x5d-\x7e\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|\\[\x01-\x09\x0b\x0c\x0d-\x7f\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))*(([ \t]*\r\n)?[ \t]+)?")@(([a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.)+([a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.?$/i;
+        return pattern.test(emailAddress);
+    };
+
+</script>
+</html>
