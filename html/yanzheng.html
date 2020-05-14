@@ -5,6 +5,13 @@
     <title>验证邮箱</title>
 </head>
 <body>
+
+<tr>
+    <td class="td_title"><span class="f_red">*</span>手机</td>
+    <td class="" >
+        <input type="text" class="input-text" name="mobile" value="" placeholder="手机号码"   />
+    </td>
+</tr>
 <tr>
     <td class="td_title"><span class="f_red">*</span> 您需要订阅</td>
     <td class="td_checkbox" >
@@ -24,6 +31,19 @@
 <button type="" class="tijiao">提交</button>
 </body>
 <script>
+
+    //只允许输入数字
+    $("input[name='mobile']").keyup(function(){
+        var c=$(this);
+        if(/[^\d]/.test(c.val())){//替换非数字字符
+            var temp_amount=c.val().replace(/[^\d]/g,'');
+            $(this).val(temp_amount);
+        }
+    })
+
+
+
+
     $('.tijiao').click(function () {
 
         if (!$(':checkbox').is(':checked')) {
