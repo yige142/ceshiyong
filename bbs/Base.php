@@ -28,6 +28,7 @@ class Base{
     public function redisConnect(){
         $redis = new Redis();
         $redis->connect('127.0.0.1',6379);
+       // $redis->connect("szdjgyjy.redis.rds.aliyuncs.com",6379);
         return $redis;
     }
 
