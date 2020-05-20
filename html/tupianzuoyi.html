@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图片左移</title>
+    <style type="text/css">
+        div{
+            position:absolute;
+            top:50px;
+            height:50px;
+            width:50px;
+            left:200px;
+            background-color: #5dcbff;
+        }
+</style>
+    <script src="../JS/jquery3.2.js" type="text/javascript"></script>
+</head>
+<body>
+
+<div></div>
+
+       <input type="button" value="left" id="left">
+        <input type="button" value="right" id="right">
+        <script type="text/javascript">
+    $(function(){
+        var $ltime=0;
+        var $rtime=0;
+        $("#left").bind("click",function(){
+            $ltime++;
+            $("div").animate({
+                left: "-=50px"
+            },1000,function(){
+                $("div").html("左移"+$ltime+"次")
+                console.log($ltime);
+            })
+        });
+        $("#right").bind("click",function(){
+            $("div").animate({
+                left: "+=50"
+            },1000,function(){
+                $rtime++;
+                $(this).html("右移"+$rtime+"次")
+            })
+        })
+    });
+</script>
+
+</body>
+</html>

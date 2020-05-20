@@ -7,7 +7,6 @@
 
 <link rel="stylesheet" href="css/banner.css" />
 <style>
-	#bb{width: 500px;}
 </style>
 </head>
 <body>
@@ -37,57 +36,10 @@
 
 
 
-<div class="c-banner" id="bb">
-	<div class="banner">
-		<ul>
-			<li><img src="img/index_07.png"></li>
-			<li><img src="img/banner.jpg"></li>
-			<li><img src="img/index_09.jpg"></li>
 
-		</ul>
-	</div>
-
-</div>
 
 <script type="text/javascript" src="js/jquery.min.js"></script>
 <script type="text/javascript" src="js/banner.js"></script>
-<script>
-	//baner_time 区别banner.js里的time,因为那边一点上一步会影响到第二个banner，所以这个变量另外起
-	var baner_time=null;
-	//记录当前位子
-	var zhegeImg = 0;
-	//用于获取轮播图图片个数
-	var bb_imgLength = $("#bb .banner ul li").length;
 
-	//页面加载
-	$(document).ready(function(){
-		// dynamicData();
-		//启动定时器,设置时间为3秒一次
-		baner_time =setInterval(intervalImg2,3000);
-	});
-
-	//轮播图
-	function intervalImg2(){
-		if(zhegeImg<bb_imgLength-1){
-			zhegeImg++;
-		}else{
-			zhegeImg=0;
-		}
-	  console.log('bb的time'+time);
-	  console.log('bb的imglength'+imgLength);
-	  console.log('bb的zhegeImg'+zhegeImg);
-		//将当前图片试用绝对定位,下一张图片试用相对定位
-		$("#bb  .banner ul img").eq(zhegeImg-1).css("position","absolute");
-		$("#bb  .banner ul img").eq(zhegeImg).css("position","relative");
-
-		$("#bb  .banner ul li").eq(zhegeImg).css("display","block");
-		$("#bb  .banner ul li").eq(zhegeImg).stop().animate({"opacity":1},1000);
-		$("#bb  .banner ul li").eq(zhegeImg-1).stop().animate({"opacity":0},1000,function(){
-			$("#bb  .banner ul li").eq(zhegeImg-1).css("display","none");
-		});
-		$("#bb  .jumpBtn ul li").css("background-color","white");
-		$("#bb  .jumpBtn ul li[jumpImg="+zhegeImg+"]").css("background-color","black");
-	}
-</script>
 </body>
 </html>

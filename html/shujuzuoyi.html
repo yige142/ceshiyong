@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>左右菜单</title>
+    <script src="../JS/jquery3.2.js"></script>
+    <script>
+        $(document).ready(function (){
+            //处理向右侧添加一个选项的事件
+            $('#right_one').click(function (){
+                //向右侧添加一个
+                $('#second').append($('#first option:selected'));
+            });
+            //------------处理向右插入的内容全部
+            $('#right_all').click(function (){
+                //向右侧添加一个
+                $('#second').append($('#first option'));
+            });
+
+            //处理向左侧添加一个选项的事件
+            $('#left_one').click(function (){
+                //向左侧添加一个
+                $('#first').append($('#second option:selected'));
+            });
+            //------------处理向左插入的内容
+            $('#left_all').click(function (){
+                //向左侧添加一个
+                $('#first').append($('#second option'));
+            });
+            //双击事件
+            $('#first').dblclick(function (){
+                //向左侧添加一个
+                $('#second').append($('#first option:selected'));
+            });
+            $('#second').dblclick(function (){
+                //向左侧添加一个
+                $('#first').append($('#second option:selected'));
+            });
+        });
+    </script>
+</head>
+
+<body>
+<table width="300" border="1">
+    <tr>
+        <td><select id='first' style="width:100px;" size="10" multiple="multiple">
+            <option>aa</option>
+            <option>aa</option>
+        </select>
+        </td>
+        <td>
+            <input type="button" id="right_one" value="->">
+            <input type="button" id="left_one" value="<-">
+            <input type="button" id="right_all" value="=>">
+            <input type="button" id="left_all" value="<=">
+        </td>
+        <td><select id='second' style="width:100px;" size="10" multiple="multiple">
+            <option>aa</option>
+            <option>aa</option>
+        </select>
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
