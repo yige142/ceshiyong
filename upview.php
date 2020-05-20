@@ -2,14 +2,6 @@
 header("Content-type:text/html;charset=utf-8");
 class UpView{
 
-//    private $dbms='mysql';     //数据库类型
-//    private $host='szcjgyjy.mysql.rds.aliyuncs.com:3306'; //数据库主机名
-//    private $dbName='wq_laserfair_com';    //使用的数据库
-//    private $user='wx_znzzkj';      //数据库连接用户名
-//    private $pass='EZrSkR5rdcXL8Azh';          //对应的密码
-//    private $mysqli='';
-
-
     private $dbms='mysql';     //数据库类型
     private $host='127.0.0.1'; //数据库主机名
     private $dbName='wq_laserfair_com';    //使用的数据库
