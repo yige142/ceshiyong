@@ -5,7 +5,10 @@
 //$b=substr($a,0,-10);
 //echo $b;
 
+//
+//$a="http://old.laserfair.com/uploads/userup/8651/14194a334-b11.jpg";
+//$b=strpos($a,'old');
 
-$a="http://old.laserfair.com/uploads/userup/8651/14194a334-b11.jpg";
+$a="http://www.laserfair.com/file/upload/202003/20/1723146647220.jpg.thumb.jpg";
 $b=strpos($a,'old');
 echo $b;
