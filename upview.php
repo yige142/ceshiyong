@@ -10,6 +10,9 @@ class UpView{
     private $mysqli='';
 
 
+
+
+
     public function mysqlConn(){
         $mysqli= $this->mysqli = new mysqli($this->host,$this->user,$this->pass,$this->dbName);
         //连接有错 提示错误信息
@@ -25,25 +28,47 @@ class UpView{
 
 }
 //更新观看随机数
-$a=mt_rand(1,5);
+
 $up =  new UpView();
-
 $mysqli=$up->mysqlConn();
-try {
-
-    //根据视频的记录条数的范围内 随机更新
-    $sql_="SELECT COUNT(*) FROM `ims_fy_lesson_parent`";
-    $count = $mysqli->query($sql_)->fetch_assoc();
-
-    $limit=mt_rand(0,$count['COUNT(*)']);
-
-    $sql="UPDATE `ims_fy_lesson_parent` set `visit_number`= `visit_number`+{$a} limit {$limit}";
-    $result = $mysqli->query($sql);
 
 
-} catch (Exception $e) {
-   // echo $e->getMessage();
-    // die(); // 终止异常
-}
+//for ($i=0; $i<1500; $i++) {
+    $a=mt_rand(1,5);
 
-echo $result;
+    try {
+        //根据视频的记录条数的范围内 随机更新
+        $sql_="SELECT COUNT(*) FROM `ims_fy_lesson_parent`";
+        $count = $mysqli->query($sql_)->fetch_assoc();
+
+        $limit=mt_rand(0,$count['COUNT(*)']);
+
+        //取模 0 ID从小到大更新  1从大到小更新
+
+        if($a%3==0){
+            $sql="UPDATE `ims_fy_lesson_parent` set `visit_number`= `visit_number`+{$a} order by id desc limit {$limit}";
+        }else{
+            $sql="UPDATE `ims_fy_lesson_parent` set `visit_number`= `visit_number`+{$a}  limit {$limit}";
+        }
+
+
+
+// $sql="UPDATE `ims_fy_lesson_parent` set `visit_number`= 0 ";
+        $result = $mysqli->query($sql);
+//die();
+
+    } catch (Exception $e) {
+        // echo $e->getMessage();
+        // die(); // 终止异常
+    }
+//}
+
+
+
+
+echo '随机数'.$a;
+echo '<br>';
+echo  '取模'.$a%3;
+echo '<br>';
+echo $limit;
+//echo $result;
