@@ -2,12 +2,12 @@
 //用curl 方法访问微信接口，获取返回微博端返回的数据
 
 
-$appid='wx23ab6314b73ae6c5';
-$AppSecret='da285fa0c1e23d6e2d72085633ab9db5';
-//$data=http_build_query($weibo);  //拼接url参数
-//$url='https://api.weibo.com/2/users/show.json'.'?'.$data;
+$appid='wx23ab6314b73ae6';
+$AppSecret='da285fa0c1e23d6e2d72085633ab9d';
+
+//还必须得放到公众号绑定的域名环境，要不然会提示40164 ip没加白名单
 $url="https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid={$appid}&secret={$AppSecret}";
-//$url输出格式   https://api.weibo.com/2/users/show.json?access_token=2.00b_y1GGIdpuiDd2db95d1946hSXXB&uid=5590453423
+
 
 
 $ch = curl_init();
@@ -25,6 +25,7 @@ $output=curl_exec($ch);
 
 //$json2Array = json_decode($jsonStr,true);
 var_dump(json_decode($output,true)) ;
+//array(2) { ["access_token"]=> string(157) "35_MLO3uvgG0vjO6dTsVXHFF1n70hgN72s85rAB9S1tvTMuVzkWSN5frXsnSgaUwTgs5ObolYmnpjfUx6JJcWcjtsPZN4OjUT7Gt7mvvKoMzcw31LcUzkQz6LU1Taj62XTEnekISAXt_q3JwzRCHWViAFAODC" ["expires_in"]=> int(7200) }
 //echo output
 //echo $output;
 
