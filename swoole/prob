@@ -1,0 +1,4 @@
+1.虚拟机启动了9502端口，win10 cmd telnet 命令访问竟然访问不了 ，（关闭了linux防火墙也不可以）
+    参考文档 | https://blog.csdn.net/weixin_44446298/article/details/89379260
+
+解决 增加持久访问端口  [root@localhost ~]# firewall-cmd --zone=public --permanent --add-port=9502/tcp

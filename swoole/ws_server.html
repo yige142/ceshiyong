@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="msg"></div>
+<input type="text" id="text">
+<button type="button" onclick="sendMessage()">发送数据</button>
+<button type="button" onclick="closeConnect()">断开链接</button>
+<button type="button" onclick="againConnect()">手动重连</button>
+</body>
+<script>
+    var msg = document.getElementById("msg");
+    //var wsServer = 'ws://192.168.55.171:9502';
+    var wsServer = 'ws://192.168.1.39:9502';//如果客户端配置了hosts文件，则可以使用域名
+    var websocket = null;
+
+    function firstConnect() {
+        websocket = new WebSocket(wsServer);
+        websocket.onopen = function (evt) {
+            //websocket.readyState 属性：
+            /*
+            CONNECTING  0   The connection is not yet open.
+            OPEN    1   The connection is open and ready to communicate.
+            CLOSING 2   The connection is in the process of closing.
+            CLOSED  3   The connection is closed or couldn't be opened.
+            */
+            msg.innerHTML = websocket.readyState;
+            console.log("Connected to WebSocket server.");
+        };
+
+        websocket.onclose = function (evt) {
+            msg.innerHTML += 'Disconnected<br>';
+            console.log("Disconnected");
+        };
+
+        websocket.onmessage = function (evt) {
+            msg.innerHTML += evt.data + '<br>';
+            console.log('Retrieved data from server: ' + evt.data);
+        };
+
+        websocket.onerror = function (evt, e) {
+            console.log('Error occured: ' + evt.data);
+        };
+    }
+    firstConnect();
+
+    function sendMessage() {
+        ipttext = document.getElementById('text')
+        var text = ipttext.value;
+        ipttext.value = '';
+        if (websocket.readyState != 1) {
+            msg.innerHTML += 'WebSocket is closed.<br>';
+            return false;
+        }
+        websocket.send(text);
+    }
+
+    function closeConnect() {
+        websocket.close();
+    }
+
+    //WebSocket断开重连
+    function againConnect() {
+        if (websocket.readyState != 1) {
+            firstConnect();
+        }
+    }
+    //setInterval(againConnect, 5000);
+</script>
+</html>
