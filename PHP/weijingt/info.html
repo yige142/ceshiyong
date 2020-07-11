@@ -1,0 +1,10 @@
+{template 'common/header'}
+<div>
+	{loop $row $v}
+      <p>
+		  <span><?php echo 123?> {$v['openid']} {$v['nickname']}</span>
+	  </p>
+	{/loop}
+	{$pager}
+</div>
+{template 'common/footer'}
