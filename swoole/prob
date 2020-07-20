@@ -2,3 +2,15 @@
     参考文档 | https://blog.csdn.net/weixin_44446298/article/details/89379260
 
 解决 增加持久访问端口  [root@localhost ~]# firewall-cmd --zone=public --permanent --add-port=9502/tcp
+
+
+2.本地环境不能连接linux mysql（本地连接linux密码设置成了 0  而不是root）                      https://blog.csdn.net/torpidcat/article/details/97274141
+连接提示错：1045-Access denied for user'root'
+grant all privileges on *.* to 'root'@'我电脑的ip地址' identified by '密码';
+
+3.连接成功后提示错误  1044-Access denied for user'root'    https://www.cnblogs.com/ahu-lichang/p/6702921.html
+造成错误原因：远程登录，创建数据库时，出现权限不足
+ 解决办法：
+    1、登录Linux中的MySQL：mysql -uroot -padmin。
+    2、对所要创建的数据库进行授权操作：grant all privileges on lc_db.* to 'root'@'%' identified by 'admin' with grant option;
+    　　　　lc_db:是你将要创建的数据库的名字；admin:是你Linux下MySQL的登录密码。

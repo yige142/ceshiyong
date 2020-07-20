@@ -1,4 +1,15 @@
 <?php
+//测试json数据
+
+$a="{ \"text\":\"sdf\",\"color\":\"white\",\"size\":\"1\",\"position\":\"0\",\"user\":\"ceshi\"}";
+$b=json_decode($a,true);
+var_dump($b);
+echo gettype($a);die();
+
+
+$dir=dirname(__FILE__);
+echo $dir;die();
+
 
 echo $_SERVER['SERVER_NAME'];
 $a=33445;

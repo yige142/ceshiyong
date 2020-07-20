@@ -46,7 +46,8 @@ Demo<br><br>
 <!--控制区-->
 <div class="ctr" >
   <button type="button"  onclick="pauser()">弹幕暂停</button>  &nbsp;&nbsp;&nbsp;&nbsp;
-  <button type="button"  onclick="resumer() ">弹幕继续</button>&nbsp;&nbsp;&nbsp;&nbsp;
+  <button type="button"  onclick="resumer() ">弹幕继续</button>
+  <input type="text" name="user" value="ceshi" >&nbsp;&nbsp;&nbsp;
   显示弹幕:<input type='checkbox' checked='checked' id='ishide' value='is' onchange='changehide()'> &nbsp;&nbsp;&nbsp;&nbsp;
   弹幕透明度:
   <input type="range" name="op" id="op" onchange="op()" value="100"> <br>
@@ -76,7 +77,7 @@ Demo<br><br>
 </div>
 <script>
   //WebSocket
-  var wsServer = 'ws://192.168.1.23:9502';
+  var wsServer = 'ws://192.168.1.42:9502';
   var websocket= new WebSocket(wsServer);
 
   //连接建立时触发 websocket.onopen
@@ -152,6 +153,7 @@ Demo<br><br>
 
   //发送弹幕，使用了文档README.md第7节中推荐的方法
   function send(){
+    var user = $("[name='user']").val();
     var text = document.getElementById('text').value;
     var color = document.getElementById('color').value;
     var position = document.getElementById('position').value;
@@ -160,7 +162,7 @@ Demo<br><br>
     //var text_obj='{ "text":"'+text+'","color":"'+color+'","size":"'+size+'","position":"'+position+'","time":'+time+'}';
     //为了处理简单，方便后续加time，和isnew，就先酱紫发一半吧。
     //注：time为弹幕出来的时间，isnew为是否加边框，自己发的弹幕，常理上来说是有边框的。
-    var text_obj='{ "text":"'+text+'","color":"'+color+'","size":"'+size+'","position":"'+position+'"';
+    var text_obj='{ "text":"'+text+'","color":"'+color+'","size":"'+size+'","position":"'+position+'","user":"'+user+'"';
 
     //利用websocket发送
     websocket.send(text_obj);
