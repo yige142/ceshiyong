@@ -1,7 +1,7 @@
 <?php 
 header('Content-type:text/html;charset=utf8');
 $conn = @ mysql_connect("localhost", "root", "root") or die("datebase can`t been connected");
-mysql_select_db("danmu", $conn);
+mysql_select_db("aaaaa", $conn);
 mysql_query("set names 'utf8'"); //
 
 
