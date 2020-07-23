@@ -54,6 +54,8 @@
 //    string(0) ""
 //  }
 //}
+
+
 //数组去重 column为 null 则输出全部的字段，如果写了cate_id ,那就只输出 cate_id那一列
 //index_key 去掉跟cate_id重复的数组
 array_column($cat_id_news,null,'cate_id');

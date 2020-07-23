@@ -1,5 +1,6 @@
 <?php
 //测试json数据
+phpinfo();die();
 
 $a="{ \"text\":\"sdf\",\"color\":\"white\",\"size\":\"1\",\"position\":\"0\",\"user\":\"ceshi\"}";
 $b=json_decode($a,true);
