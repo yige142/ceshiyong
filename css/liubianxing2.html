@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<!-- https://www.cnblogs.com/wangEddy/p/7910419.html -->
+<style>
+    .wrap{
+        height:138px;
+        width: 236px;
+        position: relative;
+        margin: 200px auto;
+        background: url('../img/3.png') 50% 50% no-repeat;
+        background-size: auto 220px;
+    }
+    .common{
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+        background-color: #1F547E;
+        left:0;
+
+    }
+    .common:before{
+        content:'';
+        position: absolute;
+        background:url('../img/3.png') 50% 50% no-repeat;
+        background-size: auto 300px;
+        width: 230px;
+        height: 300px;
+    }
+    .left{
+        transform: rotate(60deg);
+    }
+    .left:before{
+        transform: rotate(-60deg) translate(48px,-28px);
+    }
+    .right{
+        transform: rotate(-60deg);
+    }
+    .right:before{
+        transform: rotate(60deg) translate(48px,28px);
+        bottom: 0;
+    }
+</style>
+<body>
+宽：230 X 150 高
+<div class='wrap'>
+    <div class='left common'></div>
+    <div class='right common'></div>
+</div>
+</body>
+</html>
