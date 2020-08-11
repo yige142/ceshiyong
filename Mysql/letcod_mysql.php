@@ -24,8 +24,8 @@
 来源：力扣（LeetCode）
 链接：https://leetcode-cn.com/problems/duplicate-emails
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
- *
- * */
+
+*/
 // group by Email having count（*）>1 表示 合并email字段的结果大于1的显示出来。
 //如email 为yige142@163.com 有3个相同，having count（*）>2则可单独显示yige142@163.com
 
@@ -64,4 +64,51 @@ Employee 表包含所有员工，他们的经理也属于员工。每个员工�
 
 //ccc_employee 表
 $sql="SELECT * FROM `employee` as e INNER JOIN employee ON e.id=employee.manageId WHERE e.salary<employee.salary";
+
+
+
+
+//==========================================================================================
+/*
+某网站包含两个表，Customers 表和 Orders 表。编写一个 SQL 查询，找出所有从不订购任何东西的客户。
+
+Customers 表：
+
++----+-------+
+| Id | Name  |
++----+-------+
+| 1  | Joe   |
+| 2  | Henry |
+| 3  | Sam   |
+| 4  | Max   |
++----+-------+
+Orders 表：
+
++----+------------+
+| Id | CustomerId |
++----+------------+
+| 1  | 3          |
+| 2  | 1          |
++----+------------+
+例如给定上述表格，你的查询应返回：
+
++-----------+
+| Customers |
++-----------+
+| Henry     |
+| Max       |
++-----------+
+
+来源：力扣（LeetCode）
+链接：https://leetcode-cn.com/problems/customers-who-never-order
+
+
+
+*/
+$sql="SELECT name as Customers  FROM `customers` WHERE id NOT IN (SELECT CustomerId FROM orders)";
+//输出结果  {"headers": ["Customers"], "values": [["Henry"], ["Max"]]}
+
+
+
+
 
