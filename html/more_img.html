@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0">
+    <title>手机多图上传</title>
+    <script src="../JS/jquery3.2.js" type="text/javascript"></script>
+
+</head>
+<style>
+    .a-upload {
+        padding: 4px 10px;
+        height: 20px;
+        line-height: 20px;
+        position: relative;
+        cursor: pointer;
+        color: #888;
+        background: #fafafa;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        overflow: hidden;
+        display: inline-block;
+        *display: inline;
+        *zoom: 1
+    }
+
+    .a-upload  input {
+        position: absolute;
+        font-size: 100px;
+        right: 0;
+        top: 0;
+        opacity: 0;
+        filter: alpha(opacity=0);
+        cursor: pointer
+    }
+
+    .a-upload:hover {
+        color: #444;
+        background: #eee;
+        border-color: #ccc;
+        text-decoration: none
+    }
+</style>
+<body>
+<input type="file" id="file" name="file[]" class="a-upload" accept="image/*" multiple class="apply_file" onchange="checkinfo(this)">
+</body>
+<script>
+    $('#file').click(function () {
+        alert("提示：正视图、侧视图、俯视图、立式图各一张图片上传要求：JPG/PNG格式，像素300dpi，单张图片控制在2M以内,最后选择'四张'作品图片一起上传");
+    });
+</script>
+</html>
