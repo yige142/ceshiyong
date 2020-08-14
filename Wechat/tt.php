@@ -1,13 +1,13 @@
 <?php
-//用curl 方法访问微信接口，获取返回微博端返回的数据
-
-
 $appid='wx23';
 $AppSecret='da28';
 
-//还必须得放到公众号绑定的域名环境，要不然会提示40164 ip没加白名单
-$url="https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid={$appid}&secret={$AppSecret}";
+$code=$_GET['code'];
+var_dump("code:".$code);
 
+//获取code后，请求以下链接获取access_token：
+// https://api.weixin.qq.com/sns/oauth2/access_token?appid=APPID&secret=SECRET&code=CODE&grant_type=authorization_code
+$url="https://api.weixin.qq.com/sns/oauth2/access_token?appid={$appid}&secret={$AppSecret}&code={$code}&grant_type=authorization_code";
 
 
 $ch = curl_init();
