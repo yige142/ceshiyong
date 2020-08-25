@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <style type="text/css">
+        body, html,#allmap {width:1000px;height: 600px;overflow: hidden;margin:0;font-family:"微软雅黑";}
+    </style>
+    <script type="text/javascript" src="//api.map.baidu.com/api?v=2.0&ak=UdiaaOa9GVqoa7utWqwad3RSpGBCXREW"></script>
+    <title>设置点的新图标</title>
+</head>
+<body>
+<div id="allmap"></div>
+</body>
+</html>
+<script type="text/javascript">
+    // 百度地图API功能
+    var map = new BMap.Map("allmap");
+    var point = new BMap.Point(113.859489,22.742931);
+    map.centerAndZoom(point, 19);
+
+    //创建小狐狸
+    var pt = new BMap.Point(113.859789,22.742601);
+    var myIcon = new BMap.Icon("../img/favicon.ico", new BMap.Size(200,157));
+    var marker2 = new BMap.Marker(pt,{icon:myIcon});  // 创建标注
+    map.addOverlay(marker2);              // 将标注添加到地图中
+</script>
