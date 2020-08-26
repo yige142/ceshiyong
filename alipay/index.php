@@ -44,7 +44,7 @@ class Alipay extends Base
 
         $url = self::PAYGAGEWAY . '?' . $this->getUrl($params);
         var_dump($url);
-        exit;
+       // exit;
          header("location:" . $url);
     }
     public function rsaPay(){
@@ -104,4 +104,4 @@ class Alipay extends Base
 }
 
 //构建支付请求 可以传递MD5 RSA RSA2三种参数
-$obj = new Alipay('MD5');
+$obj = new Alipay('RSA2');
