@@ -1,0 +1,6 @@
+<?php
+
+
+$info='a:24:{s:10:"gmt_create";s:19:"2020-08-27 14:16:27";s:7:"charset";s:5:"UTF-8";s:11:"gmt_payment";s:19:"2020-08-27 14:16:38";s:11:"notify_time";s:19:"2020-08-27 14:19:19";s:7:"subject";s:6:"测试";s:4:"sign";s:344:"WX+usOYzsfOJ5osc/RqobfFXxJy8IbTKQie97L7qhCZC3UI5OWbkSLf4h+H+fkXSAMDE3vS0Yqudtn798tWrNeoKI82QuHXKXG4Khrgf06kT3BfzAVcBxBymvH+E5FCfO+W6Qc98kznOJWUfMzrdp88E0oWZzvvM6kndD2fDmEVzzZ6OBxmRilruPnxdaCWMbnsUwwZhnCgD9i3Cm5qwzOqHis83c9PdwifasJhmi87J5IC5TibgVE7KQKg54af8DuQ8J0Yd4tOkkhCXgEegmIeB4v6fe237mI4+v+Fqh19Ymp7XXCjjuxu4+hm5eT+j6dAEjn0uRv3tSvI0jHII0Q==";s:8:"buyer_id";s:16:"2088102170188767";s:4:"body";s:3:"222";s:14:"invoice_amount";s:4:"0.02";s:7:"version";s:3:"1.0";s:9:"notify_id";s:34:"2020082700222141638088760513045972";s:14:"fund_bill_list";s:49:"[{"amount":"0.02","fundChannel":"ALIPAYACCOUNT"}]";s:11:"notify_type";s:17:"trade_status_sync";s:12:"out_trade_no";s:16:"2020827141531828";s:12:"total_amount";s:4:"0.02";s:12:"trade_status";s:13:"TRADE_SUCCESS";s:8:"trade_no";s:28:"2020082722001488760504779255";s:11:"auth_app_id";s:16:"2016073100136265";s:14:"receipt_amount";s:4:"0.02";s:12:"point_amount";s:4:"0.00";s:6:"app_id";s:16:"2016073100136265";s:16:"buyer_pay_amount";s:4:"0.02";s:9:"sign_type";s:4:"RSA2";s:9:"seller_id";s:16:"2088102169356454";}';
+$a =unserialize($info);
+var_dump($a);

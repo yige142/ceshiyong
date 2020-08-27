@@ -12,3 +12,8 @@ MD5支付流程
 1.筛选，把要传递的参数数组中的 sign,sign_type字段摘取出来
 2.排序，把摘取掉的数组按字母A-Z的顺序（KSORT）排列起来
 3.拼接，把排序好的数组后面添加支付宝的  KEY 值 然后再MD5加密 md5($this->getStr($arr) . self::KEY );
+
+
+2 支付成功，但验签失败
+ 原因，RSA2调用的验签是用的支付宝公钥（const NEW_ALIPUBKE）  不是应用公钥（const APPPRIKEY），搞混了，导致验证失败
+ 支付宝公钥 是支付宝应用公钥上传后 自动跟着改变的

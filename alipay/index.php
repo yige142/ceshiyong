@@ -1,6 +1,6 @@
 <?php
 include  "Base.php";
-/* 
+/*
  * 黎明互联
  * https://www.liminghulian.com/
  */
@@ -10,8 +10,8 @@ header("Content-type: text/html; charset=utf-8");
 class Alipay extends Base
 {
     public function __construct($type) {
-     
-         
+
+
         if($type == 'MD5'){
             $this->md5Pay();
         }elseif ($type == 'RSA') {
@@ -20,7 +20,7 @@ class Alipay extends Base
             $this->newPay();
         }
     }
-    
+
     public function md5Pay(){
         $params = [
             'service' => 'create_direct_pay_by_user', //接口名称 固定值
@@ -37,15 +37,15 @@ class Alipay extends Base
             'seller_id' => self::PID,//支付宝用户号 seller_id、seller_email、seller_account_name至少传一个
             'body' => '测试的商品',//商品描述 可空
         ];
-       // echo '<pre>';
+        // echo '<pre>';
         $params = $this->setSign($params);
         echo "<pre>";
         var_dump($params);
 
         $url = self::PAYGAGEWAY . '?' . $this->getUrl($params);
         var_dump($url);
-       // exit;
-         header("location:" . $url);
+        // exit;
+        header("location:" . $url);
     }
     public function rsaPay(){
         $params = [
@@ -65,10 +65,10 @@ class Alipay extends Base
         ];
         // echo '<pre>';
         $params = $this->setRsaSign($params);
-       // print_r($params);
+        // print_r($params);
         //exit;
-         $url = self::PAYGAGEWAY . '?' . $this->getUrl($params);
-         header("location:" . $url);
+        $url = self::PAYGAGEWAY . '?' . $this->getUrl($params);
+        header("location:" . $url);
     }
     public function newPay(){
         //公共参数
@@ -85,7 +85,7 @@ class Alipay extends Base
             'notify_url'    => self::NOURL, //异步通知地址
             'biz_content'    =>  '', //业务请求参数的集合
         ];
-        
+
         //业务参数
         $api_params = [
             'out_trade_no'  => date('YmdHis'),//商户订单号
@@ -94,12 +94,12 @@ class Alipay extends Base
             'subject'  => '新版支付宝支付', //订单标题
         ];
         $pub_params['biz_content'] = json_encode($api_params,JSON_UNESCAPED_UNICODE);
-       // echo '<pre>';
-        
-      $pub_params =  $this->setRsa2Sign($pub_params);
-      //print_r($pub_params);
-       $url = self::NEW_PAYGATEWAY . '?' . $this->getUrl($pub_params);
-       header("location:" . $url);
+        // echo '<pre>';
+
+        $pub_params =  $this->setRsa2Sign($pub_params);
+        //print_r($pub_params);
+        $url = self::NEW_PAYGATEWAY . '?' . $this->getUrl($pub_params);
+        header("location:" . $url);
     }
 }
 

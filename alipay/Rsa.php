@@ -1,6 +1,6 @@
 <?php
 
-/* 
+/*
  * 黎明互联
  * https://www.liminghulian.com/
  */
@@ -15,32 +15,32 @@ class RSA
      */
     function rsaSign($data, $private_key,$type = 'RSA') {
 
-            $search = [
-                    "-----BEGIN RSA PRIVATE KEY-----",
-                    "-----END RSA PRIVATE KEY-----",
-                    "\n",
-                    "\r",
-                    "\r\n"
-            ];
+        $search = [
+            "-----BEGIN RSA PRIVATE KEY-----",
+            "-----END RSA PRIVATE KEY-----",
+            "\n",
+            "\r",
+            "\r\n"
+        ];
 
-            $private_key=str_replace($search,"",$private_key);
-            $private_key=$search[0] . PHP_EOL . wordwrap($private_key, 64, "\n", true) . PHP_EOL . $search[1];
-            $res=openssl_get_privatekey($private_key);
+        $private_key=str_replace($search,"",$private_key);
+        $private_key=$search[0] . PHP_EOL . wordwrap($private_key, 64, "\n", true) . PHP_EOL . $search[1];
+        $res=openssl_get_privatekey($private_key);
 
-            if($res)
-            {
-                if($type == 'RSA'){
-                    openssl_sign($data, $sign,$res);
-                }elseif($type == 'RSA2'){
-                    //OPENSSL_ALGO_SHA256
-                    openssl_sign($data, $sign,$res,OPENSSL_ALGO_SHA256);
-                }
-                    openssl_free_key($res);
-            }else {
-                    exit("私钥格式有误");
+        if($res)
+        {
+            if($type == 'RSA'){
+                openssl_sign($data, $sign,$res);
+            }elseif($type == 'RSA2'){
+                //OPENSSL_ALGO_SHA256
+                openssl_sign($data, $sign,$res,OPENSSL_ALGO_SHA256);
             }
-            $sign = base64_encode($sign);
-            return $sign;
+            openssl_free_key($res);
+        }else {
+            exit("私钥格式有误");
+        }
+        $sign = base64_encode($sign);
+        return $sign;
     }
 
     /**
@@ -51,28 +51,28 @@ class RSA
      * return 验证结果
      */
     function rsaCheck($data, $public_key, $sign,$type = 'RSA')  {
-            $search = [
-                    "-----BEGIN PUBLIC KEY-----",
-                    "-----END PUBLIC KEY-----",
-                    "\n",
-                    "\r",
-                    "\r\n"
-            ];
-            $public_key=str_replace($search,"",$public_key);
-            $public_key=$search[0] . PHP_EOL . wordwrap($public_key, 64, "\n", true) . PHP_EOL . $search[1];
-            $res=openssl_get_publickey($public_key);
-            if($res)
-            {
-                if($type == 'RSA'){
-                    $result = (bool)openssl_verify($data, base64_decode($sign), $res);
-                }elseif($type == 'RSA2'){
-                    $result = (bool)openssl_verify($data, base64_decode($sign), $res,OPENSSL_ALGO_SHA256);
-                }
-                    openssl_free_key($res);
-            }else{
-                    exit("公钥格式有误!");
+        $search = [
+            "-----BEGIN PUBLIC KEY-----",
+            "-----END PUBLIC KEY-----",
+            "\n",
+            "\r",
+            "\r\n"
+        ];
+        $public_key=str_replace($search,"",$public_key);
+        $public_key=$search[0] . PHP_EOL . wordwrap($public_key, 64, "\n", true) . PHP_EOL . $search[1];
+        $res=openssl_get_publickey($public_key);
+        if($res)
+        {
+            if($type == 'RSA'){
+                $result = (bool)openssl_verify($data, base64_decode($sign), $res);
+            }elseif($type == 'RSA2'){
+                $result = (bool)openssl_verify($data, base64_decode($sign), $res,OPENSSL_ALGO_SHA256);
             }
-            return $result;
+            openssl_free_key($res);
+        }else{
+            exit("公钥格式有误!");
+        }
+        return $result;
     }
 
 }

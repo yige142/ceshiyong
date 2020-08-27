@@ -1,6 +1,7 @@
 <?php
+header('Content-Type:text/html;charset=utf-8');
 include 'Base.php';
-/* 
+/*
  * 黎明互联
  * https://www.liminghulian.com/
  */
@@ -11,7 +12,7 @@ include 'Base.php';
  *  4.验证交易状态
  *  5. 验证订单号和金额
  *  6.更改订单状态
- *  
+ *
  */
 
 class Notify extends Base
@@ -19,7 +20,7 @@ class Notify extends Base
     public function __construct() {
         // 1.获取数据
         $postData = $_POST;
-        
+
         //2.验证签名MD5和RSA
         if($postData['sign_type'] == 'MD5'){
             if(!$this->checkSign($postData)){
@@ -54,17 +55,17 @@ class Notify extends Base
         }
         // 4.验证交易状态
         if(!$this->checkOrderStatus($postData)){
-             $this->logs('log.txt', '交易未完成!');
-             exit();
+            $this->logs('log.txt', '交易未完成!');
+            exit();
         }else{
-             $this->logs('log.txt', '交易成功!');
+            $this->logs('log.txt', '交易成功!');
         }
         //5. 验证订单号和金额
         //获取支付发送过来的订单号  在商户订单表中查询对应的金额 然后和支付宝发送过来的做对比
-         $this->logs('log.txt', '订单号:' . $postData['out_trade_no'] . '订单金额:' . $postData['total_amount']);
-         
+        $this->logs('log.txt', '订单号:' . $postData['out_trade_no'] . '订单金额:' . $postData['total_amount']);
+
         //更改订单状态
-         echo 'success';
+        echo 'success';
     }
 }
 
