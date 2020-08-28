@@ -15,7 +15,11 @@
 require_once 'config.php';
 require_once 'pagepay/service/AlipayTradeService.php';
 
-$arr=$_POST;
+//$arr=$_POST;
+$arr='{"gmt_create":"2020-08-28 09:47:34","charset":"UTF-8","gmt_payment":"2020-08-28 09:47:46","notify_time":"2020-08-28 09:47:46","subject":"\u5165\u53e3","sign":"R1v8pVPFahaYAsVshHP61sPln5BYwv3quIBOmXTglCQB\/djqAxUQo6H5mw2GGTz72xQI6a8zcKDiaSUYZMmRCqzTV8URADrbBk0BiFmkozVvlcNe8yUhnGwMXqmegrb6sWyWev7lA4CFgr5c\/qPcLEGtOsPHfP4UDTB1CTmWH80WfFKkOc\/P6JIEYXG9KlI0rP8rdkebBAwZjbmJAqHIgc6z9s4G+6IVjB+yWbuSs\/rOroufx5OBwP051c01YnzhV+rWaOdRAId+28Kxi4hvce8k03FOchXE7Tw46T5VHtjJ6KDFyzWebVJko+TrtbTY5KsNhO395ELbpnJvwls5Kw==","buyer_id":"2088102170188767","body":"\u64e6\u64e6\u64e6","invoice_amount":"0.02","version":"1.0","notify_id":"2020082800222094746088760513048218","fund_bill_list":"[{\"amount\":\"0.02\",\"fundChannel\":\"ALIPAYACCOUNT\"}]","notify_type":"trade_status_sync","out_trade_no":"202082894555850","total_amount":"0.02","trade_status":"TRADE_SUCCESS","trade_no":"2020082822001488760504780162","auth_app_id":"2016073100136265","receipt_amount":"0.02","point_amount":"0.00","app_id":"2016073100136265","buyer_pay_amount":"0.02","sign_type":"RSA2","seller_id":"2088102169356454"}';
+$arr=json_decode($arr,true);
+var_dump($arr);
+
 $alipaySevice = new AlipayTradeService($config); 
 $alipaySevice->writeLog(var_export($_POST,true));
 $result = $alipaySevice->check($arr);

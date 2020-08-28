@@ -61,12 +61,14 @@ class RSA
         $public_key=str_replace($search,"",$public_key);
         $public_key=$search[0] . PHP_EOL . wordwrap($public_key, 64, "\n", true) . PHP_EOL . $search[1];
         $res=openssl_get_publickey($public_key);
+
         if($res)
         {
             if($type == 'RSA'){
                 $result = (bool)openssl_verify($data, base64_decode($sign), $res);
             }elseif($type == 'RSA2'){
                 $result = (bool)openssl_verify($data, base64_decode($sign), $res,OPENSSL_ALGO_SHA256);
+                var_dump($result);die();
             }
             openssl_free_key($res);
         }else{

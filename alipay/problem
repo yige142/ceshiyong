@@ -17,3 +17,22 @@ MD5支付流程
 2 支付成功，但验签失败
  原因，RSA2调用的验签是用的支付宝公钥（const NEW_ALIPUBKE）  不是应用公钥（const APPPRIKEY），搞混了，导致验证失败
  支付宝公钥 是支付宝应用公钥上传后 自动跟着改变的
+
+
+
+3 notify 验签规则
+  1.获取到的数据 $arr，把$arr里的sign 跟sing_type拆分出来，不留下来的数据按asc码ksort排序，在执行urldecode(http_build_query($arr))排序
+  2.处理支付宝公钥，把公钥排序成这种
+  '-----BEGIN PUBLIC KEY-----
+  MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAp5NmVEHz9wirLDGc4bSO
+  Jp7rt/Ve7iiTJri5T4z/JVlh46MdjWj6GSdECaxkk27iA1y+igEtnMOVWu+ZSOUA
+  lTA8+bWXj3FEU71GqwL+5O55R+FUea4GbV2q0gpNaxi1WknhKkxAaLbMSdd3ltyh
+  8FnK8mfQ8HpTPFg+kx0jhBC836Cm6dVkpKauw3/DIeYXc1vG5NuImY58N7RLtjyr
+  +AaYhbp/sj7fCk6puuhtwdU8rceCwSa8uLS0E5r40tRyiXjcjhwAUqM2Lsdshe+i
+  +u/Fj/H+kkl/DyYUex+Rnp7cI+2qAJNvLgBU3yA1w/w51Fo8UCXSbt5KX2F/mOfn
+  GQIDAQAB
+  -----END PUBLIC KEY-----'
+  最后openssl_get_publickey(支付宝公钥)
+  3.对分离出来的sign进行base64_decode加密 base64_decode($sign)
+  4.验证 $result = (bool)openssl_verify($arr, base64_decode($sign), $res,OPENSSL_ALGO_SHA256);
+    $result返回ture验证成功，false验证失败

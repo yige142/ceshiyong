@@ -19,7 +19,10 @@ class Notify extends Base
 {
     public function __construct() {
         // 1.获取数据
-        $postData = $_POST;
+//        $postData = $_POST;
+        $postData='{"gmt_create":"2020-08-28 09:38:04","charset":"UTF-8","gmt_payment":"2020-08-28 09:38:12","notify_time":"2020-08-28 09:38:13","subject":"\u65b0\u7248\u652f\u4ed8\u5b9d\u652f\u4ed8","sign":"ja2LH314mNYOuw\/2puMitXv8MvEnAId8WVb\/tRUzKWXzkMqR1pHpNvJ7rd1NAg9hEs3PdTW+bxf8dNFyuyafJ01A+cb9574o6VcNU2NcCVJmnJO9wa+OrUgZALfr2lPfQ90o89KfL+By3\/kdBoatlY+0BmpK5pzxCOY43mt6a5JabIfK1dsEAuoTXxSHTN4HSu8PZkV9v5t8nycrrSQp2K2SXz9fLrbqAyz0wXqa08Gw3iE2S9WNLgy7NMwlG2uBpFXUzwKkMRBGrKniPM3LSvVThJzyFwtdfBNXD5eX3a9AhBm4ekoTxGVit4xbEkwORFylni2qCSGwFO5HDiv8vg==","buyer_id":"2088102170188767","invoice_amount":"0.06","version":"1.0","notify_id":"2020082800222093813088760513047088","fund_bill_list":"[{\"amount\":\"0.06\",\"fundChannel\":\"ALIPAYACCOUNT\"}]","notify_type":"trade_status_sync","out_trade_no":"20200828033705","total_amount":"0.06","trade_status":"TRADE_SUCCESS","trade_no":"2020082822001488760504780311","auth_app_id":"2016073100136265","receipt_amount":"0.06","point_amount":"0.00","app_id":"2016073100136265","buyer_pay_amount":"0.06","sign_type":"RSA2","seller_id":"2088102169356454"}';
+        $postData=json_decode($postData,true);
+var_dump($postData);
 
         //2.验证签名MD5和RSA
         if($postData['sign_type'] == 'MD5'){

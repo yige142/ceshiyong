@@ -85,7 +85,6 @@ class AopClient {
 				$i++;
 			}
 		}
-
 		unset ($k, $v);
 		return $stringToBeSigned;
 	}
@@ -648,6 +647,7 @@ class AopClient {
 			$sign = $params['sign'];
 			$params['sign_type'] = null;
 			$params['sign'] = null;
+
 			return $this->verify($this->getSignContent($params), $sign, $rsaPublicKeyFilePath,$signType);
 	}
 	public function rsaCheckV2($params, $rsaPublicKeyFilePath, $signType='RSA') {
@@ -674,7 +674,6 @@ class AopClient {
 		($res) or die('支付宝RSA公钥错误。请检查公钥文件格式是否正确');  
 
 		//调用openssl内置方法验签，返回bool值
-
 		if ("RSA2" == $signType) {
 			$result = (bool)openssl_verify($data, base64_decode($sign), $res, OPENSSL_ALGO_SHA256);
 		} else {

@@ -18,7 +18,12 @@ require_once("config.php");
 require_once 'pagepay/service/AlipayTradeService.php';
 
 
-$arr=$_GET;
+//$arr=$_GET;
+
+$arr='{"charset":"UTF-8","out_trade_no":"202082810289298","method":"alipay.trade.page.pay.return","total_amount":"0.23","sign":"ktvaavZ3\/xldCwCauZ6\/c9t7\/fDl2+DeMLRWd3HdNLMdkkaGRhYjHXv0ACpeA5FGv5jCUgHIu67x8BNYsYyg1ffBrSYYvsoABBqHHtLKXdnwSW4OSHLpBRJ1YZMgxrlQcn3THC8N3SrQ3LtcZOC0NDISlXndHvrglYeYTk1oAj0OuYQp9aeLpVcw\/yTV1TjAv59N1WOn4fXqnLDSiwcEb2VCDjwhUmLXxaxVm0rxv0jm1NTuT28U7qHFHxMJNcqtGL4SBy09Ht1Cs0bVJhum0kTq7u7IBnr3MCh5sDtj4JrWtNx3KGTpEZA+t\/uOcNains4xXwgtgAyoZHGemPmsyQ==","trade_no":"2020082822001488760504779166","auth_app_id":"2016073100136265","version":"1.0","app_id":"2016073100136265","sign_type":"RSA2","seller_id":"2088102169356454","timestamp":"2020-08-28 10:29:39"}';
+$arr=json_decode($arr,true);
+
+var_dump($arr);
 $alipaySevice = new AlipayTradeService($config); 
 $result = $alipaySevice->check($arr);
 
