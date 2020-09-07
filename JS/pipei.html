@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>测试正则匹配</title>
+    <script src="jquery3.2.js"></script>
+</head>
+<body>
+
+</body>
+
+<script>
+    // var a='';
+    // rep = /\d+/;
+    // str = "[red_bag&id_123123]";
+    // a = rep.exec(str)
+
+   // str='JavaScript is more fun than Java or JavaBeans! id&2323';
+    var str='[red_bag~id~1234445]';
+    var pattern = /\bid~(\w*)\b/;
+    var redbag = /\bred_bag\b/;
+    var is_part=/^\[red_bag~id\~\d{1,9}\]$/;//匹配 \[ 开头[ \d{1,9} 匹配为数字1-9位，超过为false
+    console.log(is_part.test(str));
+
+    var b= pattern.exec(str);
+    var red_bag=redbag.exec(str);
+    var id=b[1];
+
+
+    console.log(b);
+    console.log(id);
+    console.log(red_bag);
+</script>
+</html>
