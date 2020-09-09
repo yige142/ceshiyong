@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>调测json对象字符串格式</title>
+    <script src="jquery3.2.js"></script>
+</head>
+<body>
+
+</body>
+ <script>
+     var a='{"appId":"wxa9f4a43b6e98f682","nonceStr":"cuwgu5fwmj8yqthqhkc4npf5dhxpmwuy","package":"prepay_id=wx09150304747315c18a25c2e2b1c1630000","signType":"HMAC-SHA256","timeStamp":"1599634985","paySign":"018389C5449F0AB0A4A311B4F25D64463E5CA2E7A732F5CA5A5293C9E7E315C1"}';
+     var b= $.parseJSON(a);
+     var c=JSON.stringify(b)
+     console.log(b);//{appId: "wxa9f4a43b6e98f682", nonceStr: "cuwgu5fwmj8yqthqhkc4npf5dhxpmwuy", package: "prepay_id=wx09150304747315c18a25c2e2b1c1630000", signType: "HMAC-SHA256", timeStamp: "1599634985", …}
+     console.log(b.appId);//wxa9f4a43b6e98f682
+ </script>
+</html>
