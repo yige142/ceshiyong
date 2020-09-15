@@ -16,19 +16,20 @@
     // a = rep.exec(str)
 
    // str='JavaScript is more fun than Java or JavaBeans! id&2323';
-    var str='[red_bag~id~1234445]';
+    var str='[red_bag~id~1234445~contect~sdf]';
     var pattern = /\bid~(\w*)\b/;
     var redbag = /\bred_bag\b/;
-    var is_part=/^\[red_bag~id\~\d{1,9}\]$/;//匹配 \[ 开头[ \d{1,9} 匹配为数字1-9位，超过为false
+    var is_part=/^\[red_bag~id\~\d{1,9}\~/;//匹配 \[ 开头[ \d{1,9} 匹配为数字1-9位，超过为false
+    var contect = /\bcontect~[\u4e00-\u9fa5]+\b/;
     console.log(is_part.test(str));
 
     var b= pattern.exec(str);
     var red_bag=redbag.exec(str);
     var id=b[1];
-
-
-    console.log(b);
-    console.log(id);
-    console.log(red_bag);
+    var content=contect.exec(str);
+    console.log(content);
+    // console.log(b);
+    // console.log(id);
+    // console.log(red_bag);
 </script>
 </html>

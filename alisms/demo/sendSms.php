@@ -26,11 +26,11 @@ function sendSms() {
     $security = false;
 
     // fixme 必填: 请参阅 https://ak-console.aliyun.com/ 取得您的AK信息
-    $accessKeyId = "LTAI4GKRDL5";
-    $accessKeySecret = "nFvMx0axE0RfIZKXa4";
+    $accessKeyId = "LT";
+    $accessKeySecret = "nF";
 
     // fixme 必填: 短信接收号码
-    $params["PhoneNumbers"] = "15885910459";
+    $params["PhoneNumbers"] = "15927135";
 
     // fixme 必填: 短信签名，应严格按"签名名称"填写，请参考: https://dysms.console.aliyun.com/dysms.htm#/develop/sign
     $params["SignName"] = "激光制造网";
@@ -41,7 +41,7 @@ function sendSms() {
 
     // fixme 可选: 设置模板参数, 假如模板中存在变量需要替换则为必填项
     $params['TemplateParam'] = Array (
-        "name" => "AR科普FAST射电望远镜",
+        "name" => "高山流水",
 
     );
 
