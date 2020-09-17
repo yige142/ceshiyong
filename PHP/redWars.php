@@ -12,7 +12,7 @@ function create($money,$ncount){
             if($i === $ncount -1){
                 array_push($result,$money);
             }else{
-                array_push($result,rand(1,$money-($ncount-$i-1)));
+                array_push($result,mt_rand(1,$money-($ncount-$i-1)));
             }
 
             $money -= $result[$i];
@@ -24,7 +24,7 @@ function create($money,$ncount){
     return false;
 }
 
-$result = create(0.6,5);
+$result = create(0.3,2);
 if($result!=false){
     var_dump($result);
     echo "\n".'sum:'.array_sum($result);

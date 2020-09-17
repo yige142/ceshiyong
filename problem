@@ -27,3 +27,9 @@
     容器宽：图片宽=1：xx，
     所以xx=图片宽*1/容器宽，
     代入数据xx=1460*1/200=7.3。
+
+5. 配置debug不起作用
+   注意phpstorm seeting-language&Frameworks
+     -php -debug  的debug port要设置成php.ini的端口一样 （ini是9002 IDE所以也设置9002）
+     -php -DBgp proxy 端口设置80 phpide:PHPSTROM local:localhost
+     -php Servers 正常填就好
