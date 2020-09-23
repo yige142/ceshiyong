@@ -2,6 +2,11 @@
 
 header('Content-type: text/html; charset=UTF8');
 //抢红包
+$a=1/100;
+if(!$a<0.01){
+    echo 333;
+}
+echo $a;
 
 function create($money,$ncount){
     define('MIN_MONEY',0.01);
@@ -24,7 +29,7 @@ function create($money,$ncount){
     return false;
 }
 
-$result = create(0.3,2);
+$result = create(1,100);
 if($result!=false){
     var_dump($result);
     echo "\n".'sum:'.array_sum($result);

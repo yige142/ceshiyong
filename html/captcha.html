@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>调测验证码</title>
+</head>
+<script src="../JS/jquery3.2.js"></script>
+<body>
+<img src="../php/captcha.php" class="code" >
+
+
+</body>
+<script>
+    $('.code').click(function () {
+        // $('.code').attr('src',$('#code').attr('../php/captcha.php')+Math.random())
+
+        $(".code").attr("src", "../php/captcha.php?r=" + Math.random());
+    })
+</script>
+</html>

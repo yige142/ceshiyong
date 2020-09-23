@@ -53,3 +53,5 @@
   imagepng($image);
   //4>imagedestroy() 结束图形函数 销毁$image
   imagedestroy($image);
+
+  file_put_contents('./logs/captcha', $captcha_code . "\r\n",FILE_APPEND);
