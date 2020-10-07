@@ -18,7 +18,7 @@ $base=new BaseSql();
 $mysqli = $base->mysqlConn('laser_shop');
 
 //32
-$sql="SELECT `id`,`name`,`mobile`,`company`,`wname`,`wdes` FROM `destoon_participator`";
+$sql="SELECT `id`,`name`,`mobile`,`tel`,`email`,`company`,`wname`,`wdes`,`score` FROM `destoon_participator`";
 
 $result = $mysqli->query($sql);
 if($result){
@@ -33,9 +33,13 @@ $objPHPExcel->setActiveSheetIndex(0)
     ->setCellValue('A1', 'ID')
     ->setCellValue('B1', '姓名')
     ->setCellValue('C1', '电话')
-    ->setCellValue('D1', '公司')
-    ->setCellValue('E1', '作品名称')
-    ->setCellValue('F1', '创意简介');
+    ->setCellValue('D1', '座机')
+    ->setCellValue('E1', '邮箱')
+    ->setCellValue('F1', '公司')
+    ->setCellValue('G1', '作品名称')
+    ->setCellValue('H1', '创意简介')
+    ->setCellValue('I1', '分数');
+;
 
 
 //遍历sql结果集
@@ -47,10 +51,14 @@ foreach($row as $key => $value){
         ->setCellValue("A{$a}", "{$value['id']}")
         ->setCellValue("B{$a}", "{$value['name']}")
         ->setCellValue("C{$a}", "{$value['mobile']}")
-        ->setCellValue("D{$a}", "{$value['company']}")
+        ->setCellValue("D{$a}", "{$value['tel']}")
 
-        ->setCellValue("E{$a}", "{$value['wname']}")
-        ->setCellValue("F{$a}", "{$wdes}")
+        ->setCellValue("E{$a}", "{$value['email']}")
+        ->setCellValue("F{$a}", "{$value['company']}")
+        ->setCellValue("G{$a}", "{$value['wname']}")
+
+        ->setCellValue("H{$a}", "{$wdes}")
+        ->setCellValue("I{$a}", "{$value['score']}")
 
     ;
 }

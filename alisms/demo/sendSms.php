@@ -30,18 +30,18 @@ function sendSms() {
     $accessKeySecret = "nF";
 
     // fixme 必填: 短信接收号码
-    $params["PhoneNumbers"] = "15927135";
+    $params["PhoneNumbers"] = "158";
 
     // fixme 必填: 短信签名，应严格按"签名名称"填写，请参考: https://dysms.console.aliyun.com/dysms.htm#/develop/sign
     $params["SignName"] = "激光制造网";
 
     // fixme 必填: 短信模板Code，应严格按"模板CODE"填写, 请参考: https://dysms.console.aliyun.com/dysms.htm#/develop/template
     //SMS_202566192  SMS_117526619
-    $params["TemplateCode"] = "SMS_202566192";
+    $params["TemplateCode"] = "SMS_203715576";
 
     // fixme 可选: 设置模板参数, 假如模板中存在变量需要替换则为必填项
     $params['TemplateParam'] = Array (
-        "name" => "高山流水",
+        "name" => "a",
 
     );
 

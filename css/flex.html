@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>测试flex瀑布流</title>
+    <style>
+        .masonry {
+            display: flex;
+            /*flex-direction: row;*/
+            flex-wrap: wrap;
+        }
+        .column {
+            display: flex;
+            flex-direction: column;
+            width: calc(100%/5);
+        }
+        .item__content{
+            width: 200px;
+
+            margin: 20px;
+            background-color: #66afe9;
+        }
+        .item__content img{
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<div style="width: 1200px;margin: auto;height: auto">
+    <div class="masonry">
+        <div class="column">
+            <div class="item">
+                <div class="item__content">
+                    sdfsfd
+                </div>
+            </div>
+        </div>
+
+        <div class="column">
+            <div class="item">
+                <div class="item__content">
+                    sdfsfd
+                </div>
+            </div>
+            <!-- more items -->
+        </div>
+        <div class="column">
+            <div class="item">
+                <div class="item__content">
+                    <img src="../img/3.png">
+                </div>
+            </div>
+        </div>
+
+        <div class="column">
+            <div class="item">
+                <div class="item__content">
+                    <img src="../img/5houyu.jpg">
+                </div>
+            </div>
+        </div>
+
+        <div class="column">
+            <div class="item">
+                <div class="item__content">zzzz</div>
+            </div>
+        </div>
+
+        <div class="column">
+            <div class="item">
+                <div class="item__content">
+                    <img src="../img/07.jpg">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+</body>
+</html>
