@@ -18,7 +18,7 @@ $base=new BaseSql();
 $mysqli = $base->mysqlConn('laser_shop');
 
 //32
-$sql="SELECT `id`,`name`,`mobile`,`tel`,`email`,`company`,`wname`,`wdes`,`score` FROM `destoon_participator`";
+$sql="SELECT `id`,`name`,`mobile`,`tel`,`email`,`company`,`wname`,`wdes`,`score` FROM `destoon_participator` where status=1";
 
 $result = $mysqli->query($sql);
 if($result){

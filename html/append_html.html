@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jquery append添加的元素click事件无效</title>
+    <script src="../JS/jquery3.2.js"></script>
+</head>
+<body>
+<ul class="content">
+</ul>
+<span class="test">测试</span>
+</body>
+
+
+<script>
+    $(function() {
+        $('.content').append('<li>FlyElephant</li>');
+
+        $('.content li').click(function(event) {
+            console.log('博客园-FlyElephant1');
+        });
+        $('.content li').on('click', function() {
+            console.log('博客园-FlyElephant2');
+        });
+        /*通用*/
+        $(document).on('click', '.content li', function() {
+            console.log('keso');
+        });
+
+        $('.test').click(function() {
+            $('.content').append('<li>keso</li>');
+        });
+    });
+</script>
+</html>
