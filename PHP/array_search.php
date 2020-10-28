@@ -21,11 +21,12 @@ $userdb = array(
     )
 );
 
-$found_key = array_search(5465, array_column($userdb, 'uid'));
+$found_key = array_search(40489, array_column($userdb, 'uid'));
 /**
 如果$userdb很大，建议使用一个变量，避免搜索每个元素时都调用array_column()
 $uid = array_column($userdb, 'uid');
 $found_key = array_search(40489, $uid);
  */
 var_dump($found_key);
+var_dump($userdb);
 var_dump(array_column($userdb, 'uid'));

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>css修改input框中checkbox的样式 多选设置</title>
+    <style>
+
+         .i:before{
+            content:'';
+
+             display: block;
+             width: 20px;
+             height: 20px;
+             cursor: pointer;
+             position: relative;
+             top:-12px;
+             left: 4px;
+             background: rgba(240, 84, 77, 1);;
+        }
+         .w_check:checked + .i:before{
+             display: block;
+             content: "\2714";
+             text-align: center;
+             font-size: 16px;
+             color: white;
+        }
+
+
+
+        label{
+            float: left;
+            margin-left: 20px;
+
+        }
+        [name="checkbox1[]"]{
+            /*visibility: hidden;*/
+        }
+    </style>
+</head>
+<body>
+
+
+        <label>
+                <input type="checkbox" class="w_check" name="checkbox1[]"  >
+                sdfsdfsdf
+                <i class="i"></i>
+        </label>
+
+        <label>
+                <input type="checkbox" class="w_check" name="checkbox1[]"  >
+                <i class="i"></i>
+        </label>
+
+
+</body>
+</html>
