@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>稳定banner图不变形</title>
+    <style>
+        .main_body{width: 100%;}
+        .bannerbox {
+            width: 100%;
+            min-width: 1200px;
+            position: relative;
+            overflow: hidden;
+            height: 920px;
+            background-color: #8e44ad;
+        }
+        .banner {
+            min-width: 1200px;
+            width: 1920px;
+            position: absolute;
+            left: 50%;
+            margin-left: -960px;
+            height: 920px;
+
+            background-image: url("../img/background.jpg") ;
+            background-repeat: no-repeat;
+            /*z-index: 10;*/
+            /*background: #f0ad4e;*/
+        }
+
+
+
+
+
+
+        .aaa{
+            width: 1200px;
+            height: 600px;
+            margin: auto;
+            background: #66afe9;
+
+        }
+    </style>
+</head>
+<body>
+<div class="main_body">
+    <div class="bannerbox">
+        <div class="banner"></div>
+    </div>
+
+
+
+    <div class="aaa"><span style="float: right">sdf</span></div>
+</div>
+
+
+
+</body>
+</html>
