@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户中心</title>
+    <link rel="stylesheet" type="text/css" href="__CSS__/index.css"/>
+    <script src="__JS__/jquery_3.2.js"></script>
+    <script>
+        var SCOPE={
+            'update_classify':'{:url(\'home/classify/edit_classify\')}',
+            'add_classify':'{:url(\'home/classify/add_classify\')}',
+            'index':'{:url(\'/\')}',
+        }
+    </script>
+</head>
+<body>
+<div class="fenlei_div">
+    <a href="{:url('home/index/index')}">
+        <div class="fenlei">
+            <span class="fenlei_name">返回首页</span>
+        </div>
+    </a>
+    <a href="javascript:;">
+        <div class="fenlei">
+            <span class="fenlei_name">添加分类</span>
+        </div>
+    </a>
+
+    <a href="javascript:;">
+        <div class="fenlei">
+            <a href="{:url('home/translate/show_translate')}"><span class="fenlei_name">添加保存</span></a>
+        </div>
+    </a>
+</div>
+
+<!--{volist name="info" id="Data"}-->
+<!--<li>-->
+    <!--<a>{$Data.class_name}</a>-->
+<!--</li>-->
+<!--{/volist}-->
+
+<table class="show_fenlei">
+    <tr class="fenlei_table_th">
+        <td>class_id</td>
+        <td>分类名</td>
+        <td>语言</td>
+        <td>操作</td>
+    </tr>
+    {volist name="info" id="info"}
+    <tr>
+        <td class="dd">{$info.class_id}</td>
+        <td>{$info.class_name}</td>
+        <td>英语</td>
+        <td><a href="javascript:;"  onclick="edit_classify(this)">修改</a></td>
+    </tr>
+    {/volist}
+</table>
+
+<div class="edit_classify" style="display: none">
+    <input type="text" name="class_name" class="class_name">
+    <input type="hidden" name="class_id" class="class_id">
+    <button class="submit">提交</button>
+</div>
+
+<div class="add_classify" style="display: none">
+    <input type="text" name="add_class_name" class="add_class_name">
+    <button class="add_submit">提交</button>
+</div>
+</body>
+<script>
+
+    function edit_classify(obj){
+        var class_id=$(obj).parent().siblings().html();
+        var class_name=$(obj).parent().siblings().eq(1).html();
+        //alert(class_name);
+        $('.class_name').val(class_name);
+        $('.class_id').val(class_id);
+        $('.edit_classify').show();
+       // alert($(obj).parent().siblings().html());
+    }
+
+    //添加分类
+    $('.fenlei_name').click(function(){
+        $('.add_classify').show();
+    });
+
+    $('.add_submit').click(function(){
+        $.ajax({
+            url:SCOPE['add_classify'],
+            type:'POST',
+            data:{
+                class_name:$('.add_class_name').val()
+            },
+            success:function(data){
+                if(data==1){
+                    alert('添加成功');
+                    $('.add_classify').hide();
+                }else{
+                    alert(data);
+                }
+            }
+        });
+    });
+    $('.submit').click(function(){
+        $.ajax({
+            url:SCOPE['update_classify'],
+            type:'POST',
+            data:{
+                class_id:$('.class_id').val(),
+                class_name:$('.class_name').val()
+            },
+            success:function(data){
+                if(data==1){
+                    alert('修改成功');
+                    $('.edit_classify').hide();
+                }else if(data==0){
+                    alert('没有任何更改');
+                    $('.edit_classify').show();
+                }
+
+            }
+        });
+    });
+
+
+</script>
+</html>

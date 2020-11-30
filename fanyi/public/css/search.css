@@ -1,0 +1,41 @@
+.translate_btn,.fanhui_btn,.save_btn{
+    height: 85px;
+    line-height: 45px;
+    background-color: #4288ce;
+    margin: 0 auto;
+    margin-top: 5px;
+    color: #ffffff;
+    text-align: center;
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    font-size: 32px;
+    width: 100%;
+}
+.show_result{
+    width: 100%;
+    height: auto;
+}
+.show_result table{
+    width: 100%;
+}
+.show_result table tr td{
+    font-size: 54px;
+    text-align: center;
+}
+.result_td{
+    max-width: 200px;
+    word-wrap:break-word;
+    word-break:break-all;
+    color:#e1030e;
+    border:  1px solid #e8e7e6
+}
+
+.result_tr{
+    border-top:10px solid;
+}
+.result_tr td:nth-child(1){
+    border:  1px solid #e8e7e6
+}
+.result_tr td:nth-child(2){
+    border:  1px solid #e8e7e6
+}

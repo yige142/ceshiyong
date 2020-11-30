@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="__CSS__/index.css"/>
+    <link rel="stylesheet" type="text/css" href="__CSS__/register.css"/>
+    <script src="__JS__/jquery_3.2.js"></script>
+    <script src="__JS__/register.js"></script>
+    <script>
+        var SCOPE={
+            'add_user':'{:url(\'home/user/add_user\')}',
+            'index':'{:url(\'/\')}',
+        }
+      // alert(SCOPE['add_user']);
+      // alert(SCOPE['index']);
+    </script>
+    <title>注册</title>
+</head>
+<body>
+<!--root: __ROOT__  <br>-->
+<!--js:__JS__<br>-->
+<!--public:__PUBLIC__<br>-->
+<!--css:__CSS__-->
+
+
+<div class="register_head">
+      <img src="http://iph.href.lu/200x75?text=75x300">
+       <div class="welcome_reg">欢迎注册</div>
+</div>
+
+<div class="register_content">
+    <!--{:url('check')}-->
+    <!--<form  id="reg_form" >-->
+      <div class="register_content_area">
+          <div class="register_input">
+              <span class="register_user">用户名:</span> <input class="input_username" type="text" id="user_name" />
+          </div>
+          <div class="register_code">
+              <span class="register_user">验证码:</span> <input class="input_verify_code" type="text" id="code" /><img class="code_img" onclick="refreshVerify()" src="/home/captcha.html"  />
+          </div>
+          <div class="register_input">
+              <span class="register_password">密码:</span> <input class="input_username" type="password" id="password" />
+          </div>
+          <div class="register_input">
+              <span class="register_password2">确认密码:</span> <input class="input_password2" type="password" id="password2" />
+          </div>
+          <div class="register_input">
+              <span class="register_password">手机:</span> <input class="input_username" type="text" id="mobile_phone" />
+          </div>
+
+              <a href="javascript:;"><button class="register_submit" onclick="return ajaxPost();">注册提交</button></a>
+      </div>
+    <!--</form>-->
+
+
+    <!--<form id="myform">&lt;!&ndash;这里给表单起个id用于获取表单并序列化&ndash;&gt;-->
+        <!--<input type="text" name="mess" />-->
+        <!--<input type="text" name="id" />-->
+        <!--<button onclick="ajaxPost();">-&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;</button>-->
+    <!--</form>-->
+    <!--<div id="content">-->
+
+    <!--</div>-->
+</div>
+</body>
+
+</html>

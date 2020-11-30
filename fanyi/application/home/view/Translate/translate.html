@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>翻译页</title>
+    <link rel="stylesheet" type="text/css" href="__CSS__/index.css"/>
+    <link rel="stylesheet" type="text/css" href="__CSS__/search.css"/>
+    <link rel="stylesheet" type="text/css" href="__CSS__/translate.css"/>
+    <script src="__JS__/jquery_3.2.js"></script>
+    <script>
+        var SCOPE={
+            'translate':'{:url(\'home/translate/ajax_translate\')}',
+            'add_book':'{:url(\'home/book/add_book\')}',
+            'index':'{:url(\'/\')}',
+        }
+    </script>
+</head>
+<body>
+<textarea type="text" name="ch_text" class="ch_text">{$result.trans_result[0]['src']}</textarea>
+
+<div></div>
+
+<button class="translate_btn">翻译</button>
+<div class="show_resule">
+   <div class="result_dst">
+       {$result.trans_result[0]['dst']}
+   </div>
+</div>
+
+<button class="save_btn">保存</button>
+<a href="{:url('home/index/index')}"><button class="fanhui_btn">返回</button></a>
+<div style="height: 150px"></div>
+<select name="classify" id="classify" >
+    {volist name="info" id="info"}
+    <option value="{$info.class_id}" style="height:30px;">{$info.class_name}</option>
+    {/volist}
+</select>
+</body>
+
+<script>
+   $('.translate_btn').click(function(){
+       $.ajax({
+           url:SCOPE['translate'],
+           type:'POST',
+           data:{
+               query:$('.ch_text').val()
+           },
+           success: function (data) {
+              if(data){
+                  $('.result_dst').html(data)
+              }
+           }
+       });
+   });
+
+   //保存翻译记录
+   $('.save_btn').click(function(){
+       $.ajax({
+           url:SCOPE['add_book'],
+           type:'POST',
+           data:{
+               cn_text:$('.ch_text').val(),
+               en_text:$('.result_dst').html(),
+               class_id:$('#classify option:selected').val()
+           },
+           success:function(data){
+                  if(data==1){
+                      alert('添加成功')
+                  }else{
+                      alert('没添加成功');
+                  }
+           }
+       });
+   });
+</script>
+</html>

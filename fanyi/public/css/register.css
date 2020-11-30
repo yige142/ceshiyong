@@ -1,0 +1,81 @@
+body{
+    background: #f5f5f5;
+}
+.register_head{
+    width: 1100px;
+    height:150px;
+    background-color:#006666;
+    margin: 0 auto;
+}
+.register_head img{
+    position: relative;
+    top:35px;
+}
+.welcome_reg{
+    float: right;
+    font-size: 24px;
+    margin-top: 50px;
+    margin-right: 30px;
+    color: #ffffff;
+}
+.register_content{
+    width: 1100px;
+    height: 340px;
+    margin: auto;
+    background-color: #ffffff;
+}
+.register_content_area{
+    width: 450px;
+    height: 340px;
+    margin: auto;
+    /*background-color: #f8cbcb;*/
+}
+.register_input{
+    padding-top: 20px;
+    margin-left: 100px;
+}
+.register_code{
+    margin-left: 100px;
+}
+.register_user{
+    font-size: 16px;
+}
+.input_username{
+   height:20px;
+   width: 200px;
+}
+.register_password{
+    font-size:16px;
+    margin-left: 15px;
+}
+.register_password2{
+    font-size:16px;
+    position: relative;
+    left:-17px;
+}
+.input_password2{
+    position: relative;
+    left:-17px;
+    height:20px;
+    width: 200px;
+}
+.register_submit{
+    width: 240px;
+    height: 40px;
+    background-color: #de3759;
+    border-style:solid;
+    border-color:#de3759;
+    font-size: 16px;
+    color:#ffffff;
+    margin-top:30px ;
+    margin-left: 120px;
+    cursor: pointer;
+}
+.input_verify_code{
+    height: 20px;
+    width: 50px;
+}
+.code_img{
+    position: relative;
+    top:12px;
+}

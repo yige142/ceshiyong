@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>搜索页</title>
+    <link rel="stylesheet" type="text/css" href="__CSS__/index.css"/>
+    <link rel="stylesheet" type="text/css" href="__CSS__/search.css"/>
+    <script src="__JS__/jquery_3.2.js"></script>
+</head>
+<body>
+
+<div class="show_result">
+ <table >
+     <tr>
+         <td>id</td>
+         <td>中文</td>
+         <td>英文</td>
+     </tr>
+     {volist name="result" id="result"}
+     <tr class="result_tr">
+         <td >{$result.book_id}</td>
+         <td>{$result.cn_text}</td>
+         <td class="result_td" style="">{$result.en_text}</td>
+     </tr>
+     {/volist}
+ </table>
+</div>
+
+<a href="{:url('home/index/index')}"><button class="fanhui_btn" >返回</button></a>
+
+</body>
+</html>

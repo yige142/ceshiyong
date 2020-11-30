@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="__CSS__/index.css"/>
+    <script src="__JS__/jquery_3.2.js"></script>
+    <script src="__JS__/index.js"></script>
+    <title></title>
+</head>
+<body>
+<form action="{:url('home/Translate/search')}" method="post">
+   <div class="head_top">
+        <span>
+            <a href="{:url('home/User/center')}"><img src="__IMG__/center_128.png" class="center_32"></a>
+        </span>
+        <span><input type="text" class="search" name="search"></span>
+
+        <button type="submit" class="fanyi_button" name="fanyi_btn" value="1">翻译</button>
+        <button class="search_button" name="search_btn" value="2">搜索</button>
+   </div>
+</form >
+   <div class="banner">
+       <img src="__IMG__/3.jpg" class="banner_img">
+   </div>
+
+   <div class="fenlei_div">
+       {volist name="info" id="info"}
+         <a href="{:url('home/book/show_book',['class_id'=>$info.class_id])}">
+         <div class="fenlei">
+             <span class="fenlei_name">{$info.class_name}</span>
+         </div>
+         </a>
+       {/volist}
+   </div>
+</body>
+</html>

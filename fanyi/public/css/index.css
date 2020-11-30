@@ -1,0 +1,114 @@
+body{
+    margin:0;
+    padding:0;
+    font: 20px "Microsoft YaHei","WenQuanYi Micro Hei",sans-serif;
+}
+a{
+    color: #222222;
+    text-decoration: none;
+}
+.img{
+    width: 100%;
+    height:auto;
+}
+.head_top{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 666;
+    height:150px;
+    width:100%;
+    background-color: #000088;
+
+}
+.center_32{
+    width: 100px;
+    float: left;
+    margin-top: 30px;
+    margin-left: 10px;
+}
+.search{
+    width: 54%;
+    height:85px;
+    margin-top: 35px;
+    margin-left: 15px;
+    font-size: 42px;
+}
+.search_button,.fanyi_button{
+    width: 15%;
+    height:89px;
+    font-size: 40px;
+    margin-top: 35px;
+    margin-right: 10px;
+    float: right;
+    border-radius:15px;
+    background-color: #ffffff;
+}
+.banner{
+    margin-top: 150px;
+    height: 350px;
+    width: 100%;
+}
+.banner_img{
+    width: 100%;
+    height: 350px;
+}
+.fenlei_div{
+    width: 100%;
+    height:auto;
+}
+.fenlei{
+    margin-top: 15px;
+    width: 30%;
+    margin-left: 2.5%;
+    float: left;
+    height: 250px;
+    border-radius:30px;
+    background-color:#000088;
+}
+.fenlei_name{
+    font-size: 44px;
+    line-height: 250px;
+    text-align: center;
+    margin-left: 25%;
+    color: #ffffff;
+}
+
+
+.show_fenlei {
+    width: 100%;
+    font-size: 38px;
+    height: auto;
+}
+
+.show_fenlei td{
+    font-size: 37px;
+    margin-left: 20px;
+    text-align: center;
+}
+.fenlei_table_th{
+    font-weight: bold;
+}
+
+.edit_classify,.add_classify{
+    width: 100%;
+    height: 150px;
+    background-color: #4288ce;
+}
+.edit_classify,.add_classify input{
+    height: 85px;
+    margin-top: 35px;
+    margin-left: 15px;
+    width: 80%;
+    font-size: 42px;
+}
+.edit_classify,.add_classify button{
+    width: 15%;
+    height: 89px;
+    font-size: 40px;
+    margin-top: 35px;
+    margin-right: 10px;
+    float: right;
+    border-radius: 15px;
+    background-color: #ffffff;
+}
