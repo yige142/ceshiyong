@@ -34,7 +34,7 @@
 				if(device.flash,
 					set(layer[videoplayer_plugin].url,'%SWFPATH%/plugins/videoplayer.swf');
 				  ,
-					set(layer[videoplayer_plugin].url,'%SWFPATH%/plugins/videoplayer.js');
+					set(layer[videoplayer_plugin].url,'%SWFPATH%/plugins/myvideoplayer.js');
 				  );
 			  );
 		  );

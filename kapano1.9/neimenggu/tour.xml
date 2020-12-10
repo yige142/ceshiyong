@@ -89,6 +89,7 @@
 		<!-- some example hotspots 一些热点图片-->
 		<hotspot name="spot3" url="img/html5logo80.png" style="tooltip"
 				 distorted="true" tooltip="HTML5 Logosdfsdfsdf[br]sdfsfsdfsfsdfsdfdfs" ath="-60.000" atv="-12.000"  scale="0.65"
+				 onclick="openurl('http://www.baidu.com',_blank);"
 		/>
 
 
