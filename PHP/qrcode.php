@@ -3,7 +3,7 @@
 include '../phpqrcode.php';
 //QRcode::png('http://www.baidu.com');
 //$value = 'http://wq.laserfair.com/cultural/2020/will_start.php'; //二维码内容
-$value = 'http://wx.laserfair.com/awards/2021/index.php?act=vote'; //二维码内容
+$value = 'https://wx.laserfair.com/app/index.php?i=2&c=entry&op=display&id=4232&do=lesson&m=fy_lessonv2'; //二维码内容
 $errorCorrectionLevel = 'L';//容错级别
 $matrixPointSize = 6;//生成图片大小
 //生成二维码图片
