@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>稳定nav导航图不变形</title>
+    <style>
+        .main_body{width: 100%;}
+        .bbox {
+            width: 100%;
+            min-width: 1200px;
+            position: relative;
+            overflow: hidden;
+            height: 200px;
+
+        }
+        .b {
+            min-width: 1200px;
+            width: 1920px;
+            position: absolute;
+            left: 50%;
+            margin-left: -960px;
+            height: 900px;
+
+            background-image: url("../img/nav.png") ;
+            background-repeat: no-repeat;
+            /*z-index: 10;*/
+            /*background: #f0ad4e;*/
+        }
+
+        .aaa{
+            width: 1200px;
+            height: 600px;
+            margin: auto;
+            background: #66afe9;
+
+        }
+        .cc{
+            width: 1200px;
+            height: 60px;
+            margin: auto;
+
+        }
+    </style>
+</head>
+<body>
+<div class="main_body">
+    <div class="bbox">
+        <div class="b">
+                      gggggggg/ffffffffff
+        </div>
+    </div>
+
+
+
+    <div class="aaa"><span style="float: right">sdf</span></div>
+</div>
+
+
+
+</body>
+</html>
