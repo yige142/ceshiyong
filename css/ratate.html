@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>css旋转div的边框</title>
+    <style>
+        .aa{
+            width: 40px;
+            height: 40px;
+            border-top: 1px solid #999;
+            border-right: 1px solid #999;
+            transform: rotate(45deg);
+            position: absolute;
+            right: 0px;
+
+        }
+        .aa::after{
+            display: inline-block;
+            line-height: 100px;
+            transform: rotate(-45deg);
+            transform-origin:center 50%;
+        }
+
+        .cc{
+            position: relative;
+            display: inline-block;
+            height: 20px;
+            width: 1px;
+            border: 1px solid #f8cbcb;
+            transform: rotate(45deg);
+            top: 10px;
+        }
+        .dd{
+            position: relative;
+            display: inline-block;
+            height: 20px;
+            width: 1px;
+            border: 1px solid #f8cbcb;
+            transform: rotate(-45deg);
+            top: -5px;
+        }
+
+    </style>
+</head>
+<body>
+   <div style="width: 500px;height: 200px;margin: auto;background-color: #bce8f1;position: relative">
+       <div class="aa">
+           sdfsf
+       </div>
+
+       sfsdfdsfdsdfsdfsdfdsf <span class="cc"></span><span class="dd"></span>
+   </div>
+
+</body>
+</html>
