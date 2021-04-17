@@ -18,7 +18,7 @@ $base=new BaseSql();
 $mysqli = $base->mysqlConn('local_wq_laserfair');
 
 //32
-$sql="SELECT `id`,`company`,`address`,`corporate`,`name`,`mobile`,`prize`,`subhead`,`status`,`create_time` FROM `ims_awards_apply` ORDER BY status ASC,create_time DESC";
+$sql="SELECT `id`,`company`,`subhead`,`prize`,`status`,`create_time` FROM `ims_awards_apply`  WHERE `status`=1 ORDER BY prize ASC,create_time DESC";
 
 //$sql="SELECT `id`,`company`,`address`,`corporate`,`name`,`mobile`,`prize`,`subhead`,`status`,`create_time` FROM `ims_awards_apply` GROUP BY company ORDER BY status ASC";
 
@@ -34,14 +34,10 @@ $objPHPExcel = new PHPExcel();
 $objPHPExcel->setActiveSheetIndex(0)
     ->setCellValue('A1', 'ID')
     ->setCellValue('B1', '公司')
-    ->setCellValue('C1', '地址')
-    ->setCellValue('D1', '公司法人')
-    ->setCellValue('E1', '联系人')
-    ->setCellValue('F1', '联系人电话')
-    ->setCellValue('G1', '报名奖项')
-    ->setCellValue('H1', '参赛作品')
-    ->setCellValue('I1', '状态')
-    ->setCellValue('J1', '创建时间');
+    ->setCellValue('C1', '参赛作品')
+    ->setCellValue('D1', '报名奖项')
+    ->setCellValue('E1', '状态')
+    ->setCellValue('F1', '创建时间');
 ;
 
 ;
@@ -64,17 +60,11 @@ foreach($row as $key => $value){
     $objPHPExcel->setActiveSheetIndex(0)
         ->setCellValue("A{$a}", "{$value['id']}")
         ->setCellValue("B{$a}", "{$value['company']}")
-        ->setCellValue("C{$a}", "{$value['address']}")
-        ->setCellValue("D{$a}", "{$value['corporate']}")
+        ->setCellValue("C{$a}", "{$value['subhead']}")
+        ->setCellValue("D{$a}", "{$value['prize']}")
 
-        ->setCellValue("E{$a}", "{$value['name']}")
-        ->setCellValue("F{$a}", "{$value['mobile']}")
-        ->setCellValue("G{$a}", "{$value['prize']}")
-
-        ->setCellValue("H{$a}", "{$value['subhead']}")
-
-        ->setCellValue("I{$a}", $status)
-        ->setCellValue("J{$a}", date('Y-m-d H:i',$value['create_time']))
+        ->setCellValue("E{$a}", $status)
+        ->setCellValue("F{$a}", date('Y-m-d H:i',$value['create_time']))
     ;
 
 
@@ -85,6 +75,6 @@ foreach($row as $key => $value){
 $objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');
 
 //$objWriter->save(str_replace('.php', '.xlsx', __FILE__));
-$objWriter->save("../ExcelOut/awards_2021.xlsx");
+$objWriter->save("../ExcelOut/group2021.xlsx");
 
 //$objWriter->save("../ExcelOut/awards_sole.xlsx");
