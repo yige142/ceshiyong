@@ -18,9 +18,9 @@ $base=new BaseSql();
 $mysqli = $base->mysqlConn('local_wq_laserfair');
 
 //32
-$sql="SELECT `id`,`company`,`subhead`,`prize`,`status`,`create_time` FROM `ims_awards_apply`  WHERE `status`=1 ORDER BY prize ASC,create_time DESC";
+//$sql="SELECT `id`,`company`,`subhead`,`prize`,`status`,`create_time` FROM `ims_awards_apply`  WHERE `status`=1 ORDER BY prize ASC,create_time DESC";
 
-//$sql="SELECT `id`,`company`,`address`,`corporate`,`name`,`mobile`,`prize`,`subhead`,`status`,`create_time` FROM `ims_awards_apply` GROUP BY company ORDER BY status ASC";
+$sql="SELECT `id`,`company`,`name`,`mobile`,`status`,`create_time` FROM `ims_awards_apply` WHERE status=1 GROUP BY company ORDER BY id ASC";
 
 $result = $mysqli->query($sql);
 if($result){
@@ -34,8 +34,8 @@ $objPHPExcel = new PHPExcel();
 $objPHPExcel->setActiveSheetIndex(0)
     ->setCellValue('A1', 'ID')
     ->setCellValue('B1', '公司')
-    ->setCellValue('C1', '参赛作品')
-    ->setCellValue('D1', '报名奖项')
+    ->setCellValue('C1', '联系人')
+    ->setCellValue('D1', '联系人电话')
     ->setCellValue('E1', '状态')
     ->setCellValue('F1', '创建时间');
 ;
@@ -60,8 +60,8 @@ foreach($row as $key => $value){
     $objPHPExcel->setActiveSheetIndex(0)
         ->setCellValue("A{$a}", "{$value['id']}")
         ->setCellValue("B{$a}", "{$value['company']}")
-        ->setCellValue("C{$a}", "{$value['subhead']}")
-        ->setCellValue("D{$a}", "{$value['prize']}")
+        ->setCellValue("C{$a}", "{$value['name']}")
+        ->setCellValue("D{$a}", "{$value['mobile']}")
 
         ->setCellValue("E{$a}", $status)
         ->setCellValue("F{$a}", date('Y-m-d H:i',$value['create_time']))
