@@ -1,0 +1,15 @@
+ #找到当选者的名字
+ # 1.最里面的子查询连接两个表的信息
+ # 2.第2个子查询 按第一个子查询 b临时表 的id 起别名为count_id ,然后计算 获得b.id ( vote表的CandidateId 字段) 投票总数,然后按票数降序排序，limit取最开始一个
+ # 3.最外层查询只为按照要求格式 显示 NAME 对应的值
+ SELECT NAME from
+ (
+	 SELECT *,count(b.id) AS count_id FROM
+			(
+			SELECT c.id,c.name,v.id AS v_id
+			FROM Candidate AS c
+			inner JOIN vote AS v
+			ON c.id=v.CandidateId
+			) as b
+			GROUP BY b.id  ORDER BY count_id DESC LIMIT 1
+ ) as tmp

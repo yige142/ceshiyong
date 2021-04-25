@@ -1,0 +1,36 @@
+# 查询语句获取每位玩家 第一次登陆平台的日期。
+
+# min(event_date) 获取日期最小的一个，日期最小说明日期越早
+# “每位玩家”所以要用 GROUP BY
+SELECT player_id,min(event_date) AS first_login FROM `activity`  GROUP BY player_id
+
+SELECT player_id,device_id FROM(SELECT player_id,device_id,min(event_date) AS first_login FROM `activity`  GROUP BY player_id) AS b
+
+
+# 告每组玩家和日期，以及玩家到目前为止玩了多少游戏。也就是说，在此日期之前玩家所玩的游戏总数
+#select * FROM `activity` ORDER BY player_id ASC
+
+select
+    a1.player_id,
+    a1.event_date,
+    sum(a2.games_played) as games_played_so_far
+from
+    activity a1
+inner join
+    activity a2
+on
+    a1.player_id  = a2.player_id
+    and
+    a1.event_date >= a2.event_date
+group by
+    a1.player_id,a1.event_date;
+
+
+select * FROM `activity`,`activity` a2
+
+#看一下inner jonin 查询的效果是啥，返回的AXB (如a=3,b=3)的笛卡尔积（不含and的话）
+select * FROM activity AS a inner join activity as a2 ON a.player_id=a2.player_id
+and a.event_date >= a2.event_date
+
+#调试不用innerjoin查询是个什么效果
+select player_id,event_date,sum(games_played) as played FROM `activity` GROUP BY player_id,event_date

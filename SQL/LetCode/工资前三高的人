@@ -1,0 +1,14 @@
+#找出每个部门获得前三高工资的所有员工
+select d.Name as Department,e.username as Employee,e.Salary as Salary
+from c_user as e left join Department as d
+on e.department_id= d.Id
+WHERE e.id IN
+(
+		select e1.Id
+    from c_user as e1 left join c_user as e2
+    on e1.department_id = e2.department_id and e1.Salary < e2.Salary
+    group by e1.Id
+    having count(distinct e2.Salary) <= 2
+)
+and e.department_id in (select Id from `department`)
+order by d.Id asc,e.Salary desc

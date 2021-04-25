@@ -1,0 +1,6 @@
+# 调测LIKE 用索引
+SELECT username FROM(SELECT `username` FROM `c_user` WHERE `id` IN(1,3,5)) AS bb WHERE username='yige143';
+
+#左连接复合索引username,id 双%%like查询可以使用索引
+SELECT id,username FROM `c_user` WHERE username like "%yige%" ORDER BY id asc;
+SELECT * FROM c_user WHERE id=10

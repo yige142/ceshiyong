@@ -1,0 +1,15 @@
+
+#L查询来查找至少有4名直接下属的经理
+
+select * from employee e1
+where
+(select count(*) from employee e2 WHERE e2.manageId=e1.Id)>=4
+
+#查看子查询的结果集是什么样
+select * from employee e1,employee AS e2  WHERE e2.manageId=e1.Id
+
+
+#查看连接子查询后 全部显示信息是什么样
+select * from employee e1
+where
+(select count(*) from employee e2 WHERE e2.manageId=e1.Id)

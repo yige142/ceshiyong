@@ -1,0 +1,5 @@
+#选出所有 bonus < 1000 的员工的 name 及其 bonus。
+
+SELECT * FROM `employee` e LEFT JOIN Bonus b ON b.empid=e.id  WHERE IFNULL(bonus,0) <1000
+
+#IFNULL() 函数用于判断第一个表达式是否为 NULL，如果为 NULL 则返回第二个参数的值，如果不为 NULL 则返回第一个参数的值。

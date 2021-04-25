@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SqlDialectMappings">
+    <file url="file://$PROJECT_DIR$/SQL/LetCode/员工上三个月的薪水(困难).sql" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/SQL/LetCode/工资前三高的人" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/SQL/LetCode/找打当选者的名字" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/SQL/LetCode/每位玩家第一次登陆平台" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/SQL/LetCode/调测like用索引" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/SQL/LetCode/选出奖金小于1000的人" dialect="MySQL" />
+    <file url="PROJECT" dialect="MySQL" />
+  </component>
+</project>
