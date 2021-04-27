@@ -1,0 +1,7 @@
+#查询 department 表中每个专业的学生人数 （即使没有学生的专业也需列出）
+
+SELECT d.name AS dept_name,count(s.dept_id) AS student_number FROM `student` s
+right join department AS d
+ON s.dept_id=d.id
+GROUP BY d.name
+ORDER BY student_number DESC

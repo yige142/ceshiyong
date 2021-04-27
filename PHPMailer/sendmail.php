@@ -12,15 +12,15 @@ try {
     $mail->isSMTP();                             // 使用SMTP
     $mail->Host = 'smtp.163.com';                // SMTP服务器
     $mail->SMTPAuth = true;                      // 允许 SMTP 认证
-    $mail->Username = 'yige142@163.com';                // SMTP 用户名  即邮箱的用户名
-    $mail->Password = 'ZJMDXUZYEGKAAQYH';             // SMTP 密码  部分邮箱是授权码(例如163邮箱)
+    $mail->Username = '';                // SMTP 用户名  即邮箱的用户名
+    $mail->Password = '';             // SMTP 密码  部分邮箱是授权码(例如163邮箱)
     $mail->SMTPSecure = 'ssl';                    // 允许 TLS 或者ssl协议
     $mail->Port = 465;                            // 服务器端口 25 或者465 具体要看邮箱服务器支持
 
-    $mail->setFrom('yige142@163.com', 'Mailer');  //发件人
-    $mail->addAddress('279290309@qq.com', 'Joe');  // 收件人
+    $mail->setFrom('', 'Mailer');  //发件人
+    $mail->addAddress('', 'Joe');  // 收件人
     //$mail->addAddress('ellen@example.com');  // 可添加多个收件人
-    $mail->addReplyTo('yige142@163.com', 'info'); //回复的时候回复给哪个邮箱 建议和发件人一致
+    $mail->addReplyTo('', 'info'); //回复的时候回复给哪个邮箱 建议和发件人一致
     //$mail->addCC('cc@example.com');                    //抄送
     //$mail->addBCC('bcc@example.com');                    //密送
 
@@ -31,7 +31,14 @@ try {
     //Content
     $mail->isHTML(true);                                  // 是否以HTML文档格式发送  发送后客户端可直接显示对应HTML内容
     $mail->Subject = '这里是邮件标题' . time();
-    $mail->Body    = '<h1>这里是邮件内容</h1>' . date('Y-m-d H:i:s');
+    $mail->Body    = '<div style="width: 800px;min-height:1670px;margin: auto;background-image: url(http://wx.laserfair.com/awards/2021/resource/img/award_email.jpg)">
+   <div style="width: 635px;height: 320px;background-color: #bce8f1;float: left;margin-left: 80px;margin-top: 760px">
+          xxx公司：
+          恭喜xxxxxx
+       xxxxxx
+       xxx
+   </div>
+</div>';
     $mail->AltBody = '如果邮件客户端不支持HTML则显示此内容';
 
     $mail->send();
