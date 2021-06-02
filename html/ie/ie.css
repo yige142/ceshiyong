@@ -1,0 +1,9 @@
+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    .cc {
+        width: 1200px;
+        height: 300px;
+        background-color: #7f7f7f;
+        margin: auto;
+    }
+}
