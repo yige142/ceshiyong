@@ -82,9 +82,16 @@ foreach($row as $key => $value){
     ;
 }
 
-$objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');
-
+//$objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');
+//$fileName='award.xlsx';
 //$objWriter->save(str_replace('.php', '.xlsx', __FILE__));
-$objWriter->save("../ExcelOut/awards_2021.xlsx");
+//$objWriter->save("../ExcelOut/awards_2021.xlsx");
 
-//$objWriter->save("../ExcelOut/awards_sole.xlsx");
+$filename=date('Y-m-dHis');
+$objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');
+ob_end_clean();
+header("Content-Type: application/vnd.ms-excel;");
+header("Content-Disposition:attachment;filename=".$filename.".xlsx");
+header("Pragma:no-cache");
+header("Expires:0");
+$objWriter->save('php://output');
