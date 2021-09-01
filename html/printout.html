@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>调测打印机打印效果</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<style>
+    .a4-endwise{
+        width: 1055px;
+        /*min-height: 1500px;*/
+        height: auto;
+        /*border: 1px #000 solid;*/
+        overflow: hidden;
+        padding: 0;
+        word-break:break-all;
+    }
+
+    .print{
+        position: fixed;
+        top: 1%;
+        right: 10%;
+    }
+    .address_div{
+        width: 487px;
+        height: 200px;
+        background-color: #a0cfff;
+        float: left;
+        border: 1px solid #EEEDED;
+        margin-left:2px;
+        margin-top: 13px;
+        overflow: hidden;
+    }
+    .address_div:nth-child(2n+2){
+        background-color: #5daf34;
+        width: 485px;
+        margin-left: 58px;
+    }
+    .address_div P{
+        /*padding-bottom: 0px !important;*/
+        /*margin-left: 10px;*/
+    }
+
+    /*.address_div:nth-child(2){*/
+    /*    margin-left:13px;*/
+    /*}*/
+
+    .postcode{
+        height: 36px;
+        font-size: 34px;
+        margin-top: 6px;
+        font-weight: bold;
+        margin-left: 10px;
+        margin-bottom: 6px;
+        letter-spacing: 5px;
+    }
+    .address{
+        min-height: 20px;
+        /*height: 50px;*/
+        font-size: 20px;
+
+        margin-left: 10px;
+
+
+    }
+    .company{
+        margin-left: 10px;
+
+        font-size: 20px;
+    }
+    .to_name{
+        margin-left: 10px;
+        font-size: 20px;
+    }
+    .to_date{
+        float: right;
+        font-size: 16px;
+        margin-right: 20px;
+    }
+    .to_date, .to_name,.company,.address,.postcode{
+        margin-left: 10px;
+        margin-top: 2px;
+    }
+    body{
+        padding: 0;
+        margin: 0;
+    }
+</style>
+<body>
+<a class="print" href="javascript:;" onclick="preview();">打印</a>
+<!--startprint-->
+<div class="container a4-endwise"  style="page-break-before:always">
+    <div class="address_div">
+        <div class="postcode" >518001</div>
+        <div class="address" >深圳市坪山区结社路60号频闪街道办事处902室sdfsf</div>
+        <div class="company" >深圳市坪山区科技创新服务属</div>
+        <div class="to_name">刘丹丹</div>
+        <div class="to_date" >2021-8-27</div>
+    </div>
+
+    <div class="address_div">
+        <div class="postcode" >518001</div>
+        <div class="address" >河北沧州渤海新区航运中心大厦1001室沧州渤海西懂法守法水电费</div>
+        <div class="company" >深圳市坪山区科技创新服务属</div>
+        <div class="to_name">刘丹丹</div>
+        <div class="to_date" >2021-8-27</div>
+    </div>
+
+
+    <div class="address_div">
+        <div class="postcode" >518001</div>
+        <div class="address" >深圳市坪山区结社路60号频闪街道办事处902室sdfsf</div>
+        <div class="company" >深圳市坪山区科技创新服务属</div>
+        <div class="to_name">刘丹丹</div>
+        <div class="to_date" >2021-8-27</div>
+    </div>
+
+    <div class="address_div">
+        <div class="postcode" >518001</div>
+        <div class="address" >河北沧州渤海新区航运中心大厦1001室沧州渤海西懂法守法水电费</div>
+        <div class="company" >深圳市坪山区科技创新服务属</div>
+        <div class="to_name">刘丹丹</div>
+        <div class="to_date" >2021-8-27</div>
+    </div>
+
+
+    <div class="address_div">
+        <div class="postcode" >518001</div>
+        <div class="address" >深圳市坪山区结社路60号频闪街道办事处902室sdfsf</div>
+        <div class="company" >深圳市坪山区科技创新服务属</div>
+        <div class="to_name">刘丹丹</div>
+        <div class="to_date" >2021-8-27</div>
+    </div>
+
+    <div class="address_div">
+        <div class="postcode" >518001</div>
+        <div class="address" >河北沧州渤海新区航运中心大厦1001室沧州渤海西懂法守法水电费</div>
+        <div class="company" >深圳市坪山区科技创新服务属</div>
+        <div class="to_name">刘丹丹</div>
+        <div class="to_date" >2021-8-27</div>
+    </div>
+
+    <div class="address_div">
+        <div class="postcode" >518001</div>
+        <div class="address" >深圳市坪山区结社路60号频闪街道办事处902室sdfsf</div>
+        <div class="company" >深圳市坪山区科技创新服务属</div>
+        <div class="to_name">刘丹丹</div>
+        <div class="to_date" >2021-8-27</div>
+    </div>
+
+    <div class="address_div">
+        <div class="postcode" >518001</div>
+        <div class="address" >河北沧州渤海新区航运中心大厦1001室沧州渤海西懂法守法水电费</div>
+        <div class="company" >深圳市坪山区科技创新服务属</div>
+        <div class="to_name">刘丹丹</div>
+        <div class="to_date" >2021-8-27</div>
+    </div>
+
+
+    <div class="address_div">
+        <div class="postcode" >518001</div>
+        <div class="address" >深圳市坪山区结社路60号频闪街道办事处902室sdfsf</div>
+        <div class="company" >深圳市坪山区科技创新服务属</div>
+        <div class="to_name">刘丹丹</div>
+        <div class="to_date" >2021-8-27</div>
+    </div>
+
+    <div class="address_div">
+        <div class="postcode" >518001</div>
+        <div class="address" >河北沧州渤海新区航运中心大厦1001室沧州渤海西懂法守法水电费</div>
+        <div class="company" >深圳市坪山区科技创新服务属</div>
+        <div class="to_name">刘丹丹</div>
+        <div class="to_date" >2021-8-27</div>
+    </div>
+
+    <div class="address_div">
+        <div class="postcode" >518001</div>
+        <div class="address" >深圳市坪山区结社路60号频闪街道办事处902室sdfsf</div>
+        <div class="company" >深圳市坪山区科技创新服务属</div>
+        <div class="to_name">刘丹丹</div>
+        <div class="to_date" >2021-8-27</div>
+    </div>
+
+    <div class="address_div">
+        <div class="postcode" >518001</div>
+        <div class="address" >河北沧州渤海新区航运中心大厦1001室沧州渤海西懂法守法水电费</div>
+        <div class="company" >深圳市坪山区科技创新服务属</div>
+        <div class="to_name">刘丹丹</div>
+        <div class="to_date" >2021-8-27</div>
+    </div>
+
+
+    <div class="address_div">
+        <div class="postcode" >518001</div>
+        <div class="address" >深圳市坪山区结社路60号频闪街道办事处902室sdfsf</div>
+        <div class="company" >深圳市坪山区科技创新服务属</div>
+        <div class="to_name">刘丹丹</div>
+        <div class="to_date" >2021-8-27</div>
+    </div>
+
+    <div class="address_div">
+        <div class="postcode" >518001</div>
+        <div class="address" >河北沧州渤海新区航运中心大厦1001室沧州渤海西懂法守法水电费</div>
+        <div class="company" >深圳市坪山区科技创新服务属</div>
+        <div class="to_name">刘丹丹</div>
+        <div class="to_date" >2021-8-27</div>
+    </div>
+
+</div>
+
+<div class="container a4-endwise"  style="page-break-before:always">
+
+    <div class="address_div">
+        <div class="postcode" >123123</div>
+        <div class="address" >深圳市坪山区结士大夫身份sdfsf</div>
+        <div class="company" >深圳市坪山区科技创新服务属</div>
+        <div class="to_name">刘丹丹</div>
+        <div class="to_date" >2021-8-27</div>
+    </div>
+
+    <div class="address_div">
+        <div class="postcode" >518001</div>
+        <div class="address" >河北沧州渤海新区航运中心大厦1001室沧州渤海西懂法守法水电费</div>
+        <div class="company" >深圳市坪山区科技创新服务属</div>
+        <div class="to_name">刘丹丹</div>
+        <div class="to_date" >2021-8-27</div>
+    </div>
+
+
+
+    <div class="address_div">
+        <div class="postcode" >518001</div>
+        <div class="address" >河北沧州渤海新区航运中心大厦1001室沧州渤海西懂法守法水电费</div>
+        <div class="company" >深圳市坪山区科技创新服务属</div>
+        <div class="to_name">刘丹丹</div>
+        <div class="to_date" >2021-8-27</div>
+    </div>
+
+    <div class="address_div">
+        <div class="postcode" >518001</div>
+        <div class="address" >深圳市坪山区结社路60号频闪街道办事处902室sdfsf</div>
+        <div class="company" >深圳市坪山区科技创新服务属</div>
+        <div class="to_name">刘丹丹</div>
+        <div class="to_date" >2021-8-27</div>
+    </div>
+
+    <div class="address_div">
+        <div class="postcode" >518001</div>
+        <div class="address" >河北沧州渤海新区航运中心大厦1001室沧州渤海西懂法守法水电费</div>
+        <div class="company" >深圳市坪山区科技创新服务属</div>
+        <div class="to_name">刘丹丹</div>
+        <div class="to_date" >2021-8-27</div>
+    </div>
+
+
+    <div class="address_div">
+        <div class="postcode" >518001</div>
+        <div class="address" >深圳市坪山区结社路60号频闪街道办事处902室sdfsf</div>
+        <div class="company" >深圳市坪山区科技创新服务属</div>
+        <div class="to_name">刘丹丹</div>
+        <div class="to_date" >2021-8-27</div>
+    </div>
+
+    <div class="address_div">
+        <div class="postcode" >518001</div>
+        <div class="address" >河北沧州渤海新区航运中心大厦1001室沧州渤海西懂法守法水电费</div>
+        <div class="company" >深圳市坪山区科技创新服务属</div>
+        <div class="to_name">刘丹丹</div>
+        <div class="to_date" >2021-8-27</div>
+    </div>
+
+    <div class="address_div">
+        <div class="postcode" >518001</div>
+        <div class="address" >深圳市坪山区结社路60号频闪街道办事处902室sdfsf</div>
+        <div class="company" >深圳市坪山区科技创新服务属</div>
+        <div class="to_name">刘丹丹</div>
+        <div class="to_date" >2021-8-27</div>
+    </div>
+
+    <div class="address_div">
+        <div class="postcode" >518001</div>
+        <div class="address" >河北沧州渤海新区航运中心大厦1001室沧州渤海西懂法守法水电费</div>
+        <div class="company" >深圳市坪山区科技创新服务属</div>
+        <div class="to_name">刘丹丹</div>
+        <div class="to_date" >2021-8-27</div>
+    </div>
+
+
+    <div class="address_div">
+        <div class="postcode" >518001</div>
+        <div class="address" >深圳市坪山区结社路60号频闪街道办事处902室sdfsf</div>
+        <div class="company" >深圳市坪山区科技创新服务属</div>
+        <div class="to_name">刘丹丹</div>
+        <div class="to_date" >2021-8-27</div>
+    </div>
+
+    <div class="address_div">
+        <div class="postcode" >518001</div>
+        <div class="address" >河北沧州渤海新区航运中心大厦1001室沧州渤海西懂法守法水电费</div>
+        <div class="company" >深圳市坪山区科技创新服务属</div>
+        <div class="to_name">刘丹丹</div>
+        <div class="to_date" >2021-8-27</div>
+    </div>
+
+</div>
+
+<div class="container a4-endwise"  style="page-break-before:always">
+    <div class="address_div">
+        <div class="postcode" >5180333</div>
+        <div class="address" >深圳市坪山区结社路60号频胜多负少</div>
+        <div class="company" >深圳市坪山区科技创新服务属</div>
+        <div class="to_name">刘丹丹</div>
+        <div class="to_date" >2021-8-27</div>
+    </div>
+
+    <div class="address_div">
+        <div class="postcode" >5180333</div>
+        <div class="address" >河北沧州渤海新区航水电费水电费费</div>
+        <div class="company" >深圳市坪山区科技创新服务属</div>
+        <div class="to_name">刘丹丹</div>
+        <div class="to_date" >2021-8-27</div>
+    </div>
+
+
+    <div class="address_div">
+        <div class="postcode" >5185555555</div>
+        <div class="address" >深圳市坪山区结士大夫身份sdfsf</div>
+        <div class="company" >深圳市坪山区科技创新服务属</div>
+        <div class="to_name">刘丹丹</div>
+        <div class="to_date" >2021-8-27</div>
+    </div>
+
+    <div class="address_div">
+        <div class="postcode" >518001</div>
+        <div class="address" >河北沧州渤海新区航运中心大厦1001室沧州渤海西懂法守法水电费</div>
+        <div class="company" >深圳市坪山区科技创新服务属</div>
+        <div class="to_name">刘丹丹</div>
+        <div class="to_date" >2021-8-27</div>
+    </div>
+
+
+    <div class="address_div">
+        <div class="postcode" >518001</div>
+        <div class="address" >深圳市坪山区结社路60号频闪街道办事处902室sdfsf</div>
+        <div class="company" >深圳市坪山区科技创新服务属</div>
+        <div class="to_name">刘丹丹</div>
+        <div class="to_date" >2021-8-27</div>
+    </div>
+
+    <div class="address_div">
+        <div class="postcode" >518001</div>
+        <div class="address" >河北沧州渤海新区航运中心大厦1001室沧州渤海西懂法守法水电费</div>
+        <div class="company" >深圳市坪山区科技创新服务属</div>
+        <div class="to_name">刘丹丹</div>
+        <div class="to_date" >2021-8-27</div>
+    </div>
+
+    <div class="address_div">
+        <div class="postcode" >518001</div>
+        <div class="address" >深圳市坪山区结社路60号频闪街道办事处902室sdfsf</div>
+        <div class="company" >深圳市坪山区科技创新服务属</div>
+        <div class="to_name">刘丹丹</div>
+        <div class="to_date" >2021-8-27</div>
+    </div>
+
+    <div class="address_div">
+        <div class="postcode" >518001</div>
+        <div class="address" >河北沧州渤海新区航运中心大厦1001室沧州渤海西懂法守法水电费</div>
+        <div class="company" >深圳市坪山区科技创新服务属</div>
+        <div class="to_name">刘丹丹</div>
+        <div class="to_date" >2021-8-27</div>
+    </div>
+
+
+    <div class="address_div">
+        <div class="postcode" >518001</div>
+        <div class="address" >深圳市坪山区结社路60号频闪街道办事处902室sdfsf</div>
+        <div class="company" >深圳市坪山区科技创新服务属</div>
+        <div class="to_name">刘丹丹</div>
+        <div class="to_date" >2021-8-27</div>
+    </div>
+
+    <div class="address_div">
+        <div class="postcode" >518001</div>
+        <div class="address" >河北沧州渤海新区航运中心大厦1001室沧州渤海西懂法守法水电费</div>
+        <div class="company" >深圳市坪山区科技创新服务属</div>
+        <div class="to_name">刘丹丹</div>
+        <div class="to_date" >2021-8-27</div>
+    </div>
+
+    <div class="address_div">
+        <div class="postcode" >518001</div>
+        <div class="address" >深圳市坪山区结社路60号频闪街道办事处902室sdfsf</div>
+        <div class="company" >深圳市坪山区科技创新服务属</div>
+        <div class="to_name">刘丹丹</div>
+        <div class="to_date" >2021-8-27</div>
+    </div>
+
+    <div class="address_div">
+        <div class="postcode" >518001</div>
+        <div class="address" >河北沧州渤海新区航运中心大厦1001室沧州渤海西懂法守法水电费</div>
+        <div class="company" >深圳市坪山区科技创新服务属</div>
+        <div class="to_name">刘丹丹</div>
+        <div class="to_date" >2021-8-27</div>
+    </div>
+
+
+    <div class="address_div">
+        <div class="postcode" >518001</div>
+        <div class="address" >深圳市坪山区结社路60号频闪街道办事处902室sdfsf</div>
+        <div class="company" >深圳市坪山区科技创新服务属</div>
+        <div class="to_name">刘丹丹</div>
+        <div class="to_date" >2021-8-27</div>
+    </div>
+
+    <div class="address_div">
+        <div class="postcode" >518001</div>
+        <div class="address" >河北沧州渤海新区航运中心大厦1001室沧州渤海西懂法守法水电费</div>
+        <div class="company" >深圳市坪山区科技创新服务属</div>
+        <div class="to_name">刘丹丹</div>
+        <div class="to_date" >2021-8-27</div>
+    </div>
+
+</div>
+
+
+<!--endprint-->
+
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script>
+    /**
+     * [打印]
+     * @return {[type]} [description]
+     */
+    function preview()
+    {
+        bdhtml=window.document.body.innerHTML;//获取当前页的html代码
+        sprnstr="<!--startprint-->";//设置打印开始区域
+        eprnstr="<!--endprint-->";//设置打印结束区域
+        prnhtml=bdhtml.substring(bdhtml.indexOf(sprnstr)+18); //从开始代码向后取html
+        prnhtml=prnhtml.substring(0,prnhtml.indexOf(eprnstr));//从结束代码向前取html
+        window.document.body.innerHTML=prnhtml;
+        window.print();
+        window.document.body.innerHTML=bdhtml;
+    }
+</script>
+
+</body>
+</html>
