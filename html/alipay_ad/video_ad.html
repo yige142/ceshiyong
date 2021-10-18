@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge" >
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"/>
+    <title>阿里播放器广告</title>
+    <link rel="stylesheet" href="https://g.alicdn.com/de/prismplayer/2.9.12/skins/default/aliplayer-min.css" />
+    <script type="text/javascript" charset="utf-8" src="https://g.alicdn.com/de/prismplayer/2.9.12/aliplayer-min.js"></script>
+
+    <!-- 请下载之后使用 -->
+    <script type="text/javascript" charset="utf-8" src="alipaycomponents.js"></script>
+
+    <script type="text/javascript" charset="utf-8" src="../../JS/jquery3.2.js"></script>
+</head>
+<body>
+<div id="J_prismPlayer"></div>
+
+
+
+</body>
+<script>
+    // window.onload = function() {
+    //     var local1=document.getElementById('player-con');  //获取，函数执行完成后local内存释放
+    //     local1.autoplay = true; // 自动播放
+    //     local1.loop = true; // 循环播放
+    //     local1.muted=true; // 关闭声音，如果为false,视频无法自动播放
+    //     if(local1.paused){  //判断是否处于暂停状态
+    //         local1.play();  //开启播放
+    //     }else{
+    //         local1.pause();  //停止播放
+    //     }
+    // }
+
+    /* Custom events for skipping ads. These parameters are provided by the video ad component. */
+
+
+
+
+
+
+$(function () {
+    var videoAdClose = function (videoAd) {
+
+        /* Register the pause event to pause the ad. */
+        videoAd.pauseVideoAd()
+        var result = confirm('关闭广告')
+        if (result) {
+            /* Register the skip event to skip the ad. */
+
+            videoAd.closeVideoAd()
+        } else {
+            /* Register the play event to play the ad. */
+            videoAd.playVideoAd()
+             $('#player-con').pause();
+        }
+
+
+    }
+
+
+    var player = new Aliplayer({
+        id: "J_prismPlayer",
+        source: "editor.mp4",
+        width: "100%",
+        height: "500px",
+        autoplay: true,
+        isLive: false,
+        components: [{
+            name: 'VideoADComponent',
+            type: AliPlayerComponent.VideoADComponent,
+            /* The video ad component has these parameters: adVideoSource, adLink, adCloseFunction, and closeText
+             * adVideoSource {@String Required. The URL of the video ad. }
+             * adLink {@String Required. The link of the ad page.}
+             * adCloseFunction {@Function Optional. The click event handler for skipping the ad. The default action is skip ad.}
+             * closeText {@String Optional. The text of the skip ad button. The default is 'Skip Ad'.}
+             */
+            args: ['http://127.0.0.1/ceshiyong/html/alipay_ad/awards2021.mp4', 'localhost/ceshiyong/', videoAdClose, 'VIP关闭广告']
+        }]
+    }, function (player) {
+        console.log("The player is created");
+    });
+})
+</script>
+</html>
