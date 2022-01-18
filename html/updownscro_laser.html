@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>上下动态滚动</title>
+    <script src="../JS/jquery3.2.js" type="text/javascript"></script>
+    <style>
+        .company_area {
+            width: 380px ;
+            height: 465px ;
+            float: left;
+            /* background-color: #0A90C3; */
+            margin-left: 14px;
+        }
+        .company_div{
+            width: 360px;
+            height: 65px;
+            margin-bottom: 12px;
+            border: 1px solid #e1e1e3;
+            overflow:hidden;
+            /*background-color: #00A388;*/
+        }
+        .cimg_div {
+            width: 65px;
+            height: 65px;
+            float: left;
+            margin-left: 5px;
+            position: relative;
+
+            overflow: hidden;
+        }
+        .cimg_div img {
+            max-width: 100%;
+            max-height: 100%;
+            top: 0px;
+            bottom: 0px;
+            left: 0px;
+            right: 0px;
+            margin: auto;
+
+            position: absolute;
+        }
+        .company_div:hover{
+            transition: 0.4s;
+            background-color: #eeeded;
+        }
+        .logo_div{
+            width: 300px;
+
+            height: auto;
+            margin: 10px auto;
+            padding: 20px;
+        }
+        .logo_div img{
+            width: 100%;
+            height: auto;
+        }
+        .company_name{
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: #b253c5;
+        }
+        .s_title{
+            margin-top: 10px;
+            font-size: 20px;
+            text-align: center;
+            color: #b253c5;
+
+        }
+        .prize_p{
+            color: #3c3c3c;
+            text-align: center;
+            padding-top: 14px;
+            width: 250px;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+
+            overflow: hidden;
+        }
+        .subhead_p{
+            color: #3c3c3c;
+            text-align: center;
+            padding-top: 4px;
+            width: 250px;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        .awards_nav{
+            width: 1200px;
+            height: 30px;
+            /*background-color: #FFF6D9;*/
+        }
+        .awards_nav{
+            border-bottom: 3px solid #F5F5F5;
+            padding-bottom: 5px;
+            margin-bottom: 5px;
+            /*background-color: #FFF6D9;*/
+        }
+        .awards_nav span{
+            border-bottom: 3px solid #a50082;
+            padding-bottom: 7px;
+            font-size: 18px;
+            color: #3C3B3C;
+        }
+        .awards_nav_img{
+            width: 18px !important;
+            display: inline-block;
+
+        }
+        .awards_both_div{
+            height: 10px;
+        }
+        .awards_ul{list-style:none;margin:0;width: 360px;height: auto;float: left;margin-left: -40px;}
+
+    </style>
+</head>
+<body>
+<!--<ul style="border: 1px solid blue;height: 60px;width:300px;overflow: hidden;">-->
+<!--    <li>aaaaaaaaaaaaaaaaaaaaa</li>-->
+<!--    <li>bbbbbbbbbbbbbbbbbbbbb</li>-->
+<!--    <li>ccccccccccccccccccccc</li>-->
+<!--    <li>ddddddddddddddddddddd</li>-->
+<!--    <li>eeeeeeeeeeeeeeeeeeeee</li>-->
+<!--    <li>fffffffffffffffffffff</li>-->
+<!--    <li>ggggggggggggggggggggg</li>-->
+<!--    <li>hhhhhhhhhhhhhhhhhhhhh</li>-->
+<!--</ul>-->
+
+<div class="company_area" style="overflow-y: auto ">
+    <ul class="awards_ul" >
+        <li> <div class="company_div">
+            <div class="cimg_div">
+                <a href="http://www.laser123.com/expand/awards.php?id=260" target="_blank">
+                    <img src="http://www.laser123.com/file/upload/awards/2021/./upload/1618400193.jpeg" onerror="">
+                </a>
+            </div>
+            <div style="width: 260px;height: auto;float:left;margin-left: 16px;">
+                <a href="http://www.laser123.com/expand/awards.php?id=260" target="_blank">
+                    <p class="prize_p"><span style="font-weight: bold;color: #a50082">荣获: 黑科技技术创新奖</span></p>
+                </a>
+                <a href="http://www.laser123.com/expand/awards.php?id=260" target="_blank">
+                    <p class="subhead_p">
+                        <span style="color: #676666">基于3D激光的立体电路技术</span>
+                    </p>
+                </a>
+            </div>
+        </div></li>
+        <li><div class="company_div">
+            <div class="cimg_div">
+                <a href="http://www.laser123.com/expand/awards.php?id=266" target="_blank">
+                    <img src="http://www.laser123.com/file/upload/awards/2021/./upload/1618455266.jpeg" onerror="">
+                </a>
+            </div>
+            <div style="width: 260px;height: auto;float:left;margin-left: 16px;">
+                <a href="http://www.laser123.com/expand/awards.php?id=266" target="_blank">
+                    <p class="prize_p"><span style="font-weight: bold;color: #a50082">荣获: 超快激光器创新贡献奖</span></p>
+                </a>
+                <a href="http://www.laser123.com/expand/awards.php?id=266" target="_blank">
+                    <p class="subhead_p">
+                        <span style="color: #676666">AWAVE-266激光器</span>
+                    </p>
+                </a>
+            </div>
+        </div></li>
+        <li><div class="company_div">
+            <div class="cimg_div">
+                <a href="http://www.laser123.com/expand/awards.php?id=277" target="_blank">
+                    <img src="http://www.laser123.com/file/upload/awards/2021/./upload/1618469211.jpeg" onerror="">
+                </a>
+            </div>
+            <div style="width: 260px;height: auto;float:left;margin-left: 16px;">
+                <a href="http://www.laser123.com/expand/awards.php?id=277" target="_blank">
+                    <p class="prize_p"><span style="font-weight: bold;color: #a50082">荣获: 超快激光器创新贡献奖</span></p>
+                </a>
+                <a href="http://www.laser123.com/expand/awards.php?id=277" target="_blank">
+                    <p class="subhead_p">
+                        <span style="color: #676666">Tangor 300飞秒激光器</span>
+                    </p>
+                </a>
+            </div>
+        </div></li>
+        <li><div class="company_div">
+            <div class="cimg_div">
+                <a href="http://www.laser123.com/expand/awards.php?id=194" target="_blank">
+                    <img src="http://www.laser123.com/file/upload/awards/2021/./upload/1618209019.jpeg" onerror="">
+                </a>
+            </div>
+            <div style="width: 260px;height: auto;float:left;margin-left: 16px;">
+                <a href="http://www.laser123.com/expand/awards.php?id=194" target="_blank">
+                    <p class="prize_p"><span style="font-weight: bold;color: #a50082">荣获: 超快激光器创新贡献奖</span></p>
+                </a>
+                <a href="http://www.laser123.com/expand/awards.php?id=194" target="_blank">
+                    <p class="subhead_p">
+                        <span style="color: #676666">Iteration系列钛宝石太瓦超快激光系统</span>
+                    </p>
+                </a>
+            </div>
+        </div></li>
+        <li> <div class="company_div">
+            <div class="cimg_div">
+                <a href="http://www.laser123.com/expand/awards.php?id=280" target="_blank">
+                    <img src="http://www.laser123.com/file/upload/awards/2021/./upload/1618477797.jpeg" onerror="">
+                </a>
+            </div>
+            <div style="width: 260px;height: auto;float:left;margin-left: 16px;">
+                <a href="http://www.laser123.com/expand/awards.php?id=280" target="_blank">
+                    <p class="prize_p"><span style="font-weight: bold;color: #a50082">荣获: 激光配套系统创新贡献奖</span></p>
+                </a>
+                <a href="http://www.laser123.com/expand/awards.php?id=280" target="_blank">
+                    <p class="subhead_p">
+                        <span style="color: #676666">LS6000激光平面切割高功率总线控制系统</span>
+                    </p>
+                </a>
+            </div>
+        </div></li>
+        <li> <div class="company_div">
+            <div class="cimg_div">
+                <a href="http://www.laser123.com/expand/awards.php?id=85" target="_blank">
+                    <img src="http://www.laser123.com/file/upload/awards/2021/./upload/1613793006.jpeg" onerror="">
+                </a>
+            </div>
+            <div style="width: 260px;height: auto;float:left;margin-left: 16px;">
+                <a href="http://www.laser123.com/expand/awards.php?id=85" target="_blank">
+                    <p class="prize_p"><span style="font-weight: bold;color: #a50082">荣获: 激光配套系统创新贡献奖</span></p>
+                </a>
+                <a href="http://www.laser123.com/expand/awards.php?id=85" target="_blank">
+                    <p class="subhead_p">
+                        <span style="color: #676666">W5000-CB-55型激光功率计</span>
+                    </p>
+                </a>
+            </div>
+        </div></li>
+        <li><div class="company_div">
+            <div class="cimg_div">
+                <a href="http://www.laser123.com/expand/awards.php?id=187" target="_blank">
+                    <img src="http://www.laser123.com/file/upload/awards/2021/./upload/1617964220.jpeg" onerror="">
+                </a>
+            </div>
+            <div style="width: 260px;height: auto;float:left;margin-left: 16px;">
+                <a href="http://www.laser123.com/expand/awards.php?id=187" target="_blank">
+                    <p class="prize_p"><span style="font-weight: bold;color: #a50082">荣获: 激光配套系统创新贡献奖</span></p>
+                </a>
+                <a href="http://www.laser123.com/expand/awards.php?id=187" target="_blank">
+                    <p class="subhead_p">
+                        <span style="color: #676666">高精度微型激光冷水机</span>
+                    </p>
+                </a>
+            </div>
+        </div></li>
+        <li><div class="company_div">
+            <div class="cimg_div">
+                <a href="http://www.laser123.com/expand/awards.php?id=217" target="_blank">
+                    <img src="http://www.laser123.com/file/upload/awards/2021/./upload/1618290586.jpeg" onerror="">
+                </a>
+            </div>
+            <div style="width: 260px;height: auto;float:left;margin-left: 16px;">
+                <a href="http://www.laser123.com/expand/awards.php?id=217" target="_blank">
+                    <p class="prize_p"><span style="font-weight: bold;color: #a50082">荣获: 激光配套系统创新贡献奖</span></p>
+                </a>
+                <a href="http://www.laser123.com/expand/awards.php?id=217" target="_blank">
+                    <p class="subhead_p">
+                        <span style="color: #676666">CoolDrive S7高性能伺服驱动器</span>
+                    </p>
+                </a>
+            </div>
+        </div></li>
+        <li><div class="company_div">
+            <div class="cimg_div">
+                <a href="http://www.laser123.com/expand/awards.php?id=297" target="_blank">
+                    <img src="http://www.laser123.com/file/upload/awards/2021/./upload/1618912952.jpeg" onerror="">
+                </a>
+            </div>
+            <div style="width: 260px;height: auto;float:left;margin-left: 16px;">
+                <a href="http://www.laser123.com/expand/awards.php?id=297" target="_blank">
+                    <p class="prize_p"><span style="font-weight: bold;color: #a50082">荣获: 激光行业杰出进步企业奖</span></p>
+                </a>
+                <a href="http://www.laser123.com/expand/awards.php?id=297" target="_blank">
+                    <p class="subhead_p">
+                        <span style="color: #676666">北京金橙子科技股份有限公司</span>
+                    </p>
+                </a>
+            </div>
+        </div></li>
+        <li> <div class="company_div">
+            <div class="cimg_div">
+                <a href="http://www.laser123.com/expand/awards.php?id=75" target="_blank">
+                    <img src="http://www.laser123.com/file/upload/awards/2021/./upload/1608188698.jpeg" onerror="">
+                </a>
+            </div>
+            <div style="width: 260px;height: auto;float:left;margin-left: 16px;">
+                <a href="http://www.laser123.com/expand/awards.php?id=75" target="_blank">
+                    <p class="prize_p"><span style="font-weight: bold;color: #a50082">荣获: 激光行业杰出进步企业奖</span></p>
+                </a>
+                <a href="http://www.laser123.com/expand/awards.php?id=75" target="_blank">
+                    <p class="subhead_p">
+                        <span style="color: #676666">深圳市超越激光智能装备股份有限公司</span>
+                    </p>
+                </a>
+            </div>
+        </div></li>
+        <li><div class="company_div">
+            <div class="cimg_div">
+                <a href="http://www.laser123.com/expand/awards.php?id=198" target="_blank">
+                    <img src="http://www.laser123.com/file/upload/awards/2021/./upload/1618212307.jpeg" onerror="">
+                </a>
+            </div>
+            <div style="width: 260px;height: auto;float:left;margin-left: 16px;">
+                <a href="http://www.laser123.com/expand/awards.php?id=198" target="_blank">
+                    <p class="prize_p"><span style="font-weight: bold;color: #a50082">荣获: 激光行业杰出进步企业奖</span></p>
+                </a>
+                <a href="http://www.laser123.com/expand/awards.php?id=198" target="_blank">
+                    <p class="subhead_p">
+                        <span style="color: #676666">武汉光至科技有限公司</span>
+                    </p>
+                </a>
+            </div>
+        </div></li>
+        <li><div class="company_div">
+            <div class="cimg_div">
+                <a href="http://www.laser123.com/expand/awards.php?id=214" target="_blank">
+                    <img src="http://www.laser123.com/file/upload/awards/2021/./upload/1618283231.jpeg" onerror="">
+                </a>
+            </div>
+            <div style="width: 260px;height: auto;float:left;margin-left: 16px;">
+                <a href="http://www.laser123.com/expand/awards.php?id=214" target="_blank">
+                    <p class="prize_p"><span style="font-weight: bold;color: #a50082">荣获: 激光行业杰出进步企业奖</span></p>
+                </a>
+                <a href="http://www.laser123.com/expand/awards.php?id=214" target="_blank">
+                    <p class="subhead_p">
+                        <span style="color: #676666">吉林省永利激光科技有限公司</span>
+                    </p>
+                </a>
+            </div>
+        </div></li>
+    </ul>
+
+</div>
+</body>
+<script type="text/javascript">
+    $(function(){
+
+//每隔两秒进行一次滚动
+        var timing =setInterval("info()",1000);
+
+        $(".awards_ul").hover(
+            function(){clearInterval(timing);},
+            function(){timing = setInterval("info()",5000);}
+        )
+
+
+
+        // $('.company_area').mouseover(function(){
+        //     // clearInterval()函数的作用是用来清除定时器
+        //     clearInterval(timing);
+        // });
+        //
+        // $('.company_area').mouseout(function(){
+        //     clearInterval(timing);
+        // });
+
+
+    })
+    function info(){
+
+        //复制第一个li
+        var li =$(".awards_ul>li:eq(0)").clone();
+
+        //使用animate对li的外边距进行调整从而达到向上滚动的效果
+        $(".awards_ul>li:eq(0)").animate({marginTop:"-79px"},1000,function(){
+
+            //对已经消失的li进行删除
+            $(".awards_ul>li:eq(0)").remove();
+
+            //把复制后的li插入到最后
+            $(".awards_ul").append(li);
+        })
+    }
+
+</script>
+</html>

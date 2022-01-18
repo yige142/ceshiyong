@@ -30,7 +30,7 @@ function sendSms() {
     $accessKeySecret = "nF";
 
     // fixme 必填: 短信接收号码
-    $params["PhoneNumbers"] = "158";
+    $params["PhoneNumbers"] = "158123";
 
     // fixme 必填: 短信签名，应严格按"签名名称"填写，请参考: https://dysms.console.aliyun.com/dysms.htm#/develop/sign
     $params["SignName"] = "激光制造网";

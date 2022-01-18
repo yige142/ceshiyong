@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图片css上下移动</title>
+    <style>
+        .cgzslj {
+            background: #142641;
+            width: 238px;
+            height: 427px;
+            position: fixed;
+            bottom: 400px;
+            left: 1px;
+            /*animation: bk 5s linear;*/
+        }
+
+        @keyframes bk {
+            0% {
+                opacity: 0.1;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .imga {
+            animation: gt 5s infinite linear;
+        }
+
+        @keyframes gt {
+            0% {
+                margin-top: 5px;
+                /*margin-left: 0px;*/
+            }
+            25% {
+                margin-top: 40px;
+                /*margin-left: 10px;*/
+            }
+            50% {
+                margin-top: 90px;
+                /*margin-left: 20px;*/
+            }
+            75% {
+                margin-top: 40px;
+                /*margin-left: 10px;*/
+            }
+            100% {
+                margin-top: 5px;
+                /*margin-left: 0px;*/
+            }
+        }
+    </style>
+</head>
+<body>
+<a class="cgzslj" :href="jumpcgzs">
+    <img src="../img/06.jpg" style="margin-left:-5px" height="200" width='200' alt="logo" title="图片上下移动" class="imga">
+</a>
+</body>
+</html>
